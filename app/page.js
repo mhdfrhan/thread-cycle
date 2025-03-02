@@ -166,7 +166,7 @@ const Home = () => {
       <div>
         <InfiniteText />
       </div>
-      <section className="relative pb-16">
+      <section className="relative pb-16 px-4">
         <HomeBanner />
       </section>
 
