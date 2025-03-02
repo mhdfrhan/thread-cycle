@@ -14,5 +14,9 @@ body {
 }
 
 body {
-  @apply text-neutral-800 dark:bg-black bg-white dark:text-neutral-200;
+  @apply text-neutral-800 dark:bg-neutral-950 bg-white dark:text-neutral-200;
+}
+
+button {
+  @apply cursor-pointer;
 }
