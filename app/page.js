@@ -177,8 +177,8 @@ const Home = () => {
       <section className="max-w-7xl mx-auto px-4 py-16">
         {/* <HowItWorksSection /> */}
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Bagaimana ThreadCycle Bekerja</h2>
-          <p className="text-lg text-neutral-400 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 text-center">Bagaimana ThreadCycle Bekerja</h2>
+          <p className="text-sm sm:text-lg text-neutral-400 max-w-2xl mx-auto">
             Bergabunglah dengan revolusi fashion berkelanjutan dalam 4 langkah sederhana
           </p>
         </div>
@@ -202,7 +202,7 @@ const Home = () => {
       <section className="py-16 bg-neutral-100 dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 ">
           <div className="text-center mb-8">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
               <span className="text-orange-500">
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
               </span>
@@ -223,7 +223,7 @@ const Home = () => {
       <section className="py-16 bg-white dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
               <span className="text-orange-500">
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                   <rect width="256" height="256" fill="none" />
@@ -242,7 +242,7 @@ const Home = () => {
                 </svg>
               </span>
             </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
               Koleksi terbaik yang dipilih khusus untuk Anda
             </p>
           </div>
@@ -295,8 +295,8 @@ const Home = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-black via-black/60 to-transparent"></div>
             <div className="absolute bottom-5 left-5">
               <div className="max-w-2xl mx-auto text-left text-white py-16">
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">Bergabunglah dengan ThreadCycle</h2>
-                <p className="text-lg max-w-lg mb-8">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4">Bergabunglah dengan ThreadCycle</h2>
+                <p className="text-sm sm:text-lg max-w-lg mb-8">
                   Temukan pakaian bekas berkualitas dengan harga terjangkau. Dapatkan poin dengan mengunggah pakaian Anda dan tukar dengan pakaian lain yang Anda inginkan.
                 </p>
                 <button className="px-6 py-3 bg-orange-600 text-white font-medium rounded-full hover:bg-orange-700 transition-all duration-300">Mulai Sekarang</button>
@@ -309,7 +309,7 @@ const Home = () => {
       <section className="max-w-7xl mx-auto px-4 py-16">
         <div>
           <div className="max-w-sm mx-auto lg:max-w-none py-12">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
               <span className="text-orange-500">
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
               </span>
@@ -318,7 +318,7 @@ const Home = () => {
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
               </span>
             </h1>
-            <p className="text-lg text-neutral-400 max-w-2xl mx-auto text-center mb-8">
+            <p className="text-sm sm:text-lg text-neutral-400 max-w-2xl mx-auto text-center mb-8">
               Jelajahi koleksi produk yang tersedia di ThreadCycle dan temukan pakaian bekas berkualitas dengan harga yang terjangkau.
             </p>
 
@@ -354,7 +354,7 @@ const Home = () => {
 
       <section className="max-w-7xl mx-auto px-4 py-16">
         <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
             <span className="text-orange-500">
               <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
             </span>
@@ -369,6 +369,29 @@ const Home = () => {
 
       <section>
         <UpcomingEvents />
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 py-16">
+        <div className="mb-8">
+          <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
+            Download Aplikasi ThreadCycle
+          </h1>
+          <p className="text-sm sm:text-lg text-neutral-400 max-w-2xl mx-auto text-center mb-8">
+            Dapatkan pengalaman berbelanja yang lebih mudah dan nyaman dengan aplikasi ThreadCycle
+          </p>
+        </div>
+
+        <div>
+          <Image src={"/img/application-mockup.png"} alt="Application Mockup" width={800} height={400} className="mx-auto max-w-60" />
+        </div>
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
+          <div className="flex flex-col items-center mb-4 md:mb-0">
+            <Image src="/img/app-store.svg" alt="App Store" width={150} height={60} />
+          </div>
+          <div className="flex flex-col items-center">
+            <Image src="/img/playstore.svg" alt="Google Play" width={150} height={60} />
+          </div>
+        </div>
       </section>
     </>
   );

@@ -55,8 +55,8 @@ const Navbar = () => {
     <div className="w-full z-[1000] ">
       {/* Main Navigation */}
       <nav className={`w-full transition-all duration-300 py-2 fixed top-0 z-[1000] bg-white dark:bg-neutral-900  ${scrolled
-          ? 'bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800'
-          : 'bg-transparent'
+        ? 'bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800'
+        : 'bg-transparent'
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -142,9 +142,9 @@ const Navbar = () => {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300"
+                className="inline-flex items-center justify-center p-2 rounded-md text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300 relative"
               >
-                <div className="relative w-6 h-6">
+                <div className="relative  w-6 h-6">
                   <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-0' : '-translate-y-2'
                     }`} />
                   <span className={`absolute w-6 h-0.5 bg-current transform transition-all duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'
@@ -215,22 +215,11 @@ const Navbar = () => {
           >
             Mulai Sekarang
           </Link>
-          <form onSubmit={handleSearch} className="w-full px-2 pt-2 pb-3">
-            <div className="relative">
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Cari pakaian..."
-                className="w-full py-2 px-4 pl-10 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-full text-sm text-neutral-900 dark:text-white placeholder-neutral-500 dark:placeholder-neutral-400 focus:outline-none focus:border-neutral-400 dark:focus:border-neutral-500 transition-all"
-              />
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center">
-                <svg className="h-5 w-5 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-            </div>
-          </form>
+
+          {/* search bar */}
+          <div className='mt-3'>
+            <PlaceholdersAndVanishInput placeholders={placeholders} />
+          </div>
         </div>
       </div>
     </div>
