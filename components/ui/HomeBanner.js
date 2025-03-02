@@ -20,16 +20,16 @@ const HomeBanner = () => {
 				className="aspect-[2/1] relative h-screen"
 			/>
 
-			<div className="absolute inset-0 flex flex-col items-center justify-center text-center w-full">
-				<h1 className="text-4xl lg:text-7xl font-bold text-white max-w-4xl mx-auto">Ubah Pakaian Lama Kamu Jadi <FlipWords words={words} /></h1>
-				<p className="text-lg text-neutral-200 mt-4 max-w-2xl mx-auto">
+			<div className="absolute inset-0 flex flex-col items-center justify-center text-center w-full px-4 overflow-hidden">
+				<h1 className="text-3xl sm:text-4xl lg:text-7xl font-bold text-white max-w-4xl mx-auto">Ubah Pakaian Lama Kamu Jadi <FlipWords words={words} /></h1>
+				<p className="sm:text-lg text-neutral-200 mt-4 max-w-2xl mx-auto">
 					ThreadCycle adalah platform untuk membeli dan menjual pakaian bekas dengan harga yang terjangkau.
 				</p>
 
 				<div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
 					<Link
 						href="/exchange"
-						className="group relative px-8 py-4 bg-orange-500 text-white font-medium rounded-full hover:bg-orange-600 transition-all duration-300 flex items-center gap-2"
+						className="group relative px-6 py-3 sm:px-8 sm:py-4 bg-orange-500 text-white font-medium rounded-full hover:bg-orange-600 transition-all duration-300 flex items-center gap-2"
 					>
 						Mulai Menukar
 						<svg
@@ -43,7 +43,7 @@ const HomeBanner = () => {
 					</Link>
 					<Link
 						href="/marketplace"
-						className="group px-8 py-4 bg-transparent text-white font-medium rounded-full border-2 border-white/30 hover:border-white hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
+						className="group px-6 py-3 sm:px-8 sm:py-4 bg-transparent text-white font-medium rounded-full border-2 border-white/30 hover:border-white hover:bg-white/10 transition-all duration-300 flex items-center gap-2"
 					>
 						Belanja Sekarang
 						<svg

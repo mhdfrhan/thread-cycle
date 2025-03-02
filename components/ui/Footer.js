@@ -48,7 +48,7 @@ const Footer = () => {
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -115,12 +115,16 @@ const Footer = () => {
           ))}
         </div>
 
+        <div className="mt-10">
+          <Image width={800} height={400} src="/img/footer-brand.svg" className="w-full h-full dark:invert" alt="Footer Brand" />
+        </div>
+
         {/* Bottom Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800"
+          className="mt-4 mb-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-neutral-600 dark:text-neutral-400">
@@ -145,9 +149,7 @@ const Footer = () => {
           </div>
         </motion.div>
 
-		  <div className="mt-14">
-			<Image width={800} height={400} src="/img/footer-brand.svg" className="w-full h-full dark:invert" alt="Footer Brand" />
-		  </div>
+
       </div>
     </footer>
   );
