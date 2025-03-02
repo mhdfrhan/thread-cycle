@@ -293,8 +293,8 @@ const Home = () => {
               Your browser does not support the video tag.
             </video>
             <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-tr from-black via-black/60 to-transparent"></div>
-            <div className="absolute bottom-5 left-5">
-              <div className="max-w-2xl mx-auto text-left text-white py-16">
+            <div className="hidden lg:block lg:absolute lg:bottom-8 lg:left-8">
+              <div className="max-w-2xl mx-auto text-left text-white">
                 <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4">Bergabunglah dengan ThreadCycle</h2>
                 <p className="text-sm sm:text-lg max-w-lg mb-8">
                   Temukan pakaian bekas berkualitas dengan harga terjangkau. Dapatkan poin dengan mengunggah pakaian Anda dan tukar dengan pakaian lain yang Anda inginkan.
@@ -303,6 +303,15 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <div className="lg:hidden mt-4">
+              <div className="max-w-2xl mx-auto text-left text-white">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4">Bergabunglah dengan ThreadCycle</h2>
+                <p className="text-sm sm:text-lg max-w-lg mb-8">
+                  Temukan pakaian bekas berkualitas dengan harga terjangkau. Dapatkan poin dengan mengunggah pakaian Anda dan tukar dengan pakaian lain yang Anda inginkan.
+                </p>
+                <button className="px-6 py-3 bg-orange-600 text-white font-medium rounded-full hover:bg-orange-700 transition-all duration-300">Mulai Sekarang</button>
+              </div>
+            </div>
         </div>
       </section>
 
