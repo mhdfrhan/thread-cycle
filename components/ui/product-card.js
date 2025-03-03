@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const ProductCard = ({ product }) => {
 	const rupiah = (number) => {
@@ -16,8 +17,10 @@ const ProductCard = ({ product }) => {
 				</div>
 			</div>
 			<div className="mt-2 text-center">
-				<h3 className="font-semibold text-2xl">{product.title}</h3>
-				<p className="text-neutral-300">{rupiah(product.price)}</p>
+				<Link href={`/product/${product.slug}`} className="font-semibold text-2xl hover:text-orange-500 transition-colors inline-block">
+					<h3>{product.title}</h3>
+				</Link>
+				<p className="text-neutral-500 dark:text-neutral-300">{rupiah(product.price)}</p>
 			</div>
 		</div>
 	);

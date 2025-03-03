@@ -6,6 +6,7 @@ import ProductCard from "@/components/ui/product-card";
 import { UpcomingEvents } from "@/app/section/UpcomingEvents";
 import Image from "next/image";
 import About from "./section/About";
+import Link from "next/link";
 
 export const metadata = {
   title: "Home | ThreadCycle",
@@ -43,6 +44,7 @@ const Home = () => {
     {
       id: 1,
       title: "Jeans Biru",
+      slug: "jeans-biru",
       price: 250000,
       category: "Celana Pria",
       image: "/img/products/1.png"
@@ -50,6 +52,7 @@ const Home = () => {
     {
       id: 2,
       title: "Kaos Hitam",
+      slug: "kaos-hitam",
       price: 150000,
       category: "Kaos Pria",
       image: "/img/products/2.png"
@@ -57,6 +60,7 @@ const Home = () => {
     {
       id: 3,
       title: "Kaos Putih",
+      slug: "kaos-putih",
       price: 150000,
       category: "Kaos Pria",
       image: "/img/products/3.png"
@@ -64,6 +68,7 @@ const Home = () => {
     {
       id: 4,
       title: "Sepatu Sneakers",
+      slug: "sepatu-sneakers",
       price: 500000,
       category: "Sepatu Pria",
       image: "/img/products/4.png"
@@ -71,6 +76,7 @@ const Home = () => {
     {
       id: 5,
       title: "Jeans Biru Wanita",
+      slug: "jeans-biru-wanita",
       price: 150000,
       category: "Celana Wanita",
       image: "/img/products/9.png"
@@ -79,6 +85,7 @@ const Home = () => {
     {
       id: 6,
       title: "Kemeja Hijau",
+      slug: "kemeja-hijau",
       price: 200000,
       category: "Kemeja Pria",
       image: "/img/products/5.png"
@@ -86,6 +93,7 @@ const Home = () => {
     {
       id: 7,
       title: "Kemeja Putih",
+      slug: "kemeja-putih",
       price: 200000,
       category: "Kemeja Wanita",
       image: "/img/products/6.png"
@@ -93,6 +101,7 @@ const Home = () => {
     {
       id: 8,
       title: "Sneakers Hitam",
+      slug: "sneakers-hitam",
       price: 500000,
       category: "Sepatu Pria",
       image: "/img/products/7.png"
@@ -270,9 +279,11 @@ const Home = () => {
                     <p className="text-neutral-200 text-sm mb-4">
                       {item.description}
                     </p>
-                    <button className="bg-white text-neutral-900 hover:bg-orange-500 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 w-fit">
-                      Lihat Koleksi
-                    </button>
+                    <Link href={'/collections/' + item.name.toLowerCase().replace(/\s/g, '-')}>
+                      <button className="bg-white text-neutral-900 hover:bg-orange-500 hover:text-white px-6 py-2 rounded-full text-sm font-medium transition-colors duration-300 w-fit">
+                        Lihat Koleksi
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -299,19 +310,21 @@ const Home = () => {
                 <p className="text-sm sm:text-lg max-w-lg mb-8">
                   Temukan pakaian bekas berkualitas dengan harga terjangkau. Dapatkan poin dengan mengunggah pakaian Anda dan tukar dengan pakaian lain yang Anda inginkan.
                 </p>
-                <button className="px-6 py-3 bg-orange-600 text-white font-medium rounded-full hover:bg-orange-700 transition-all duration-300">Mulai Sekarang</button>
+                <Link href={'/auth/login'}>
+                  <button className="px-6 py-3 bg-orange-600 text-white font-medium rounded-full hover:bg-orange-700 transition-all duration-300">Mulai Sekarang</button>
+                </Link>
               </div>
             </div>
           </div>
           <div className="lg:hidden mt-4">
-              <div className="max-w-2xl mx-auto text-left text-white">
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4">Bergabunglah dengan ThreadCycle</h2>
-                <p className="text-sm sm:text-lg max-w-lg mb-8">
-                  Temukan pakaian bekas berkualitas dengan harga terjangkau. Dapatkan poin dengan mengunggah pakaian Anda dan tukar dengan pakaian lain yang Anda inginkan.
-                </p>
-                <button className="px-6 py-3 bg-orange-600 text-white font-medium rounded-full hover:bg-orange-700 transition-all duration-300">Mulai Sekarang</button>
-              </div>
+            <div className="max-w-2xl mx-auto text-left text-white">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4">Bergabunglah dengan ThreadCycle</h2>
+              <p className="text-sm sm:text-lg max-w-lg mb-8">
+                Temukan pakaian bekas berkualitas dengan harga terjangkau. Dapatkan poin dengan mengunggah pakaian Anda dan tukar dengan pakaian lain yang Anda inginkan.
+              </p>
+              <button className="px-6 py-3 bg-orange-600 text-white font-medium rounded-full hover:bg-orange-700 transition-all duration-300">Mulai Sekarang</button>
             </div>
+          </div>
         </div>
       </section>
 

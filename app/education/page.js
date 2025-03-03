@@ -9,6 +9,7 @@ const Education = () => {
     {
       id: 1,
       title: "Mengenal Fashion Berkelanjutan",
+      slug: "mengenal-fashion-berkelanjutan",
       description: "Pelajari pentingnya fashion berkelanjutan dan dampaknya terhadap lingkungan",
       image: "https://images.unsplash.com/photo-1585914924626-15adac1e6402?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       category: "Dasar",
@@ -18,25 +19,25 @@ const Education = () => {
     {
       id: 2,
       title: "Tips Merawat Pakaian Agar Tahan Lama",
+      slug: "tips-merawat-pakaian-agar-tahan-lama",
       description: "Panduan lengkap cara merawat berbagai jenis pakaian dengan benar",
       image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       category: "Perawatan",
       readTime: "8 min read",
     },
-    // Add more articles...
   ];
 
   const courses = [
     {
       id: 1,
       title: "Kelas Fashion Berkelanjutan",
+      slug: "kelas-fashion-berkelanjutan",
       description: "Pelajari dasar-dasar fashion berkelanjutan dan cara menerapkannya",
       image: "https://images.unsplash.com/photo-1676278746104-a31a9ab267d9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       level: "Pemula",
       duration: "4 Minggu",
       price: "Gratis",
     },
-    // Add more courses...
   ];
 
   return (
@@ -47,12 +48,12 @@ const Education = () => {
             Pusat Edukasi ThreadCycle
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-            Pelajari lebih dalam tentang fashion berkelanjutan dan cara berkontribusi 
+            Pelajari lebih dalam tentang fashion berkelanjutan dan cara berkontribusi
             dalam menciptakan industri fashion yang lebih ramah lingkungan
           </p>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="mb-16"
@@ -136,7 +137,7 @@ const Education = () => {
                     {article.description}
                   </p>
                   <Link
-                    href={`/education/article/${article.id}`}
+                    href={`/education/article/${article.slug}`}
                     className="text-orange-500 hover:text-orange-600 font-medium inline-flex items-center"
                   >
                     Baca Selengkapnya
@@ -200,9 +201,11 @@ const Education = () => {
                       {course.price}
                     </span>
                   </div>
-                  <button className="w-full py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors duration-300">
-                    Mulai Belajar
-                  </button>
+                  <Link href={`/education/course/${course.slug}`} className="w-full">
+                    <button className="w-full py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors duration-300">
+                      Mulai Belajar
+                    </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -215,7 +218,7 @@ const Education = () => {
               Dapatkan Update Terbaru
             </h2>
             <p className="text-orange-100 mb-8">
-              Berlangganan newsletter kami untuk mendapatkan artikel dan tips terbaru 
+              Berlangganan newsletter kami untuk mendapatkan artikel dan tips terbaru
               seputar fashion berkelanjutan
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">

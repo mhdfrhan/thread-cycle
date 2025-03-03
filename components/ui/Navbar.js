@@ -81,7 +81,6 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Implement search functionality here
     console.log('Searching for:', searchQuery);
   };
 
@@ -96,14 +95,12 @@ const Navbar = () => {
 
   return (
     <div className="w-full z-[1000] ">
-      {/* Main Navigation */}
       <nav className={`w-full transition-all duration-300 py-2 fixed top-0 z-[1000] bg-white dark:bg-neutral-900 border-b border-transparent  ${scrolled
         ? 'bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm  border-neutral-200 dark:border-neutral-800'
         : 'bg-transparent'
         }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo - unchanged */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center space-x-2">
                 <Image
@@ -123,12 +120,10 @@ const Navbar = () => {
               </Link>
             </div>
 
-            {/* Desktop Menu */}
             <div
               ref={menuRef}
               className="hidden lg:flex items-center space-x-1 border border-neutral-200 dark:border-neutral-800 rounded-full py-1 px-2 bg-neutral-50/80 dark:bg-neutral-900/80 relative"
             >
-              {/* Active Indicator */}
               <div
                 className="absolute h-[calc(100%-8px)] transition-all duration-300 ease-out"
                 style={{
@@ -139,7 +134,6 @@ const Navbar = () => {
                 <div className="h-full w-full bg-orange-500 rounded-full" />
               </div>
 
-              {/* Menu Items */}
               {menuItems.map((item) => (
                 <Link
                   key={item.name}
@@ -154,7 +148,6 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Theme Toggle + CTA Button */}
             <div className="hidden lg:flex items-center space-x-4">
               <button
                 onClick={toggleTheme}
@@ -192,14 +185,13 @@ const Navbar = () => {
                 )}
               </button>
               <Link
-                href="/get-started"
+                href="/auth/login"
                 className="inline-flex items-center px-6 py-2 text-sm font-medium rounded-full text-white bg-orange-500 hover:bg-orange-600 transition-all duration-300"
               >
-                Mulai Sekarang
+                Login/Register
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center space-x-4">
               <button
                 onClick={toggleTheme}
@@ -254,7 +246,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Categories Bar */}
       <div className={`w-full bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 transition-all duration-300 mt-20 ${scrolled ? 'py-2' : 'py-3'
         }`}>
         <div className="flex items-center justify-between max-w-7xl mx-auto px-4">
@@ -274,13 +265,11 @@ const Navbar = () => {
               </Link>
             ))}
 
-            {/* Search Bar - unchanged */}
             <div className="hidden lg:flex flex-1 w-full max-w-xs ml-auto">
               <PlaceholdersAndVanishInput placeholders={placeholders} />
             </div>
           </div>
 
-          {/* Mobile Categories - unchanged */}
           <div className="lg:hidden flex overflow-x-auto space-x-2 py-1 no-scrollbar">
             {categories.map((category) => (
               <Link
@@ -300,14 +289,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <div className={`lg:hidden fixed top-16 left-0 w-full transition-all duration-300 ease-in-out z-50 ${isOpen ? 'opacity-100 translate-y-0 mt-4' : 'opacity-0 -translate-y-5 pointer-events-none'
         }`}>
         <div
           ref={mobilMenuRef}
           className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 relative"
         >
-          {/* Mobile Active Indicator */}
           <div
             className="absolute left-2 right-2 transition-all duration-300 ease-out"
             style={{
@@ -318,7 +305,6 @@ const Navbar = () => {
             <div className="h-full w-full bg-orange-500 rounded-full" />
           </div>
 
-          {/* Mobile Menu Items */}
           {menuItems.map((item) => (
             <Link
               key={item.name}
@@ -332,13 +318,12 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/get-started"
+            href="/auth/login"
             className="block w-full text-center px-3 py-2 text-base font-medium text-white bg-neutral-900 dark:bg-orange-600 hover:bg-neutral-800 dark:hover:bg-orange-700 rounded-full transition-all duration-300"
           >
-            Mulai Sekarang
+            Login/Register
           </Link>
 
-          {/* search bar */}
           <div className='mt-3'>
             <PlaceholdersAndVanishInput placeholders={placeholders} />
           </div>

@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+
 
 const Marketplace = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -55,6 +57,7 @@ const Marketplace = () => {
       return Array.from({ length: 24 }, (_, i) => ({
         id: i + 1,
         name: `Product ${i + 1}`,
+        slug: `product-${i + 1}`,
         price: Math.floor(Math.random() * 300000) + 50000,
         category: categories[Math.floor(Math.random() * categories.length)].id,
         condition: conditions[Math.floor(Math.random() * conditions.length)].id,
@@ -168,7 +171,7 @@ const Marketplace = () => {
                   initial={{ x: "-100%" }}
                   animate={{ x: 0 }}
                   exit={{ x: "-100%" }}
-                  transition={{ type: "spring", damping: 30 }}
+                  transition={{ type: "spring", damping: 15 }}
                   className="fixed inset-y-0 left-0 w-[300px] bg-white dark:bg-neutral-900 z-50 lg:hidden overflow-y-auto"
                 >
                   <div className="p-4">
@@ -325,9 +328,11 @@ const Marketplace = () => {
                     </div>
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold text-neutral-900 dark:text-white mb-1">
-                      {product.name}
-                    </h3>
+                    <Link href={`/product/${product.slug}`} className="font-semibold text-neutral-900 dark:text-white mb-1 hover:text-orange-500 transition-colors">
+                      <h3>
+                        {product.name}
+                      </h3>
+                    </Link>
                     <p className="text-orange-500 font-medium mb-2">
                       Rp {product.price.toLocaleString('id-ID')}
                     </p>

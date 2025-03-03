@@ -8,29 +8,29 @@ export function UpcomingEvents() {
 	return (
 		<div className="py-16 bg-neutral-100 dark:bg-neutral-950">
 			<div className="max-w-7xl mx-auto px-4">
-				<div className="mb-8 ">
-				<h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white flex justify-center items-center mb-4">
-					<span className="text-orange-500 mr-4">
-						<svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-							<rect width="256" height="256" fill="none" />
-							<line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
-							<line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
-							<line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
-						</svg>
-					</span>
-					Acara Yang Akan Datang
-					<span className="text-orange-500 ml-4">
-						<svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-							<rect width="256" height="256" fill="none" />
-							<line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
-							<line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
-							<line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
-						</svg>
-					</span>
-				</h2>
-				<p className="text-lg text-neutral-400 max-w-2xl mx-auto text-center mb-8">
-              Ikuti acara-acara menarik yang akan datang seperti Seminar dan Event Lainnya di ThreadCycle. Jangan sampai ketinggalan!
-            </p>
+				<div className="mb-8 text-center">
+					<h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
+						<span className="text-orange-500 mr-4">
+							<svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+								<rect width="256" height="256" fill="none" />
+								<line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
+								<line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
+								<line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
+							</svg>
+						</span>
+						Acara Yang Akan Datang
+						<span className="text-orange-500 ml-4">
+							<svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+								<rect width="256" height="256" fill="none" />
+								<line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
+								<line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
+								<line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" />
+							</svg>
+						</span>
+					</h2>
+					<p className="text-lg text-neutral-400 max-w-2xl mx-auto text-center mb-8">
+						Ikuti acara-acara menarik yang akan datang seperti Seminar dan Event Lainnya di ThreadCycle. Jangan sampai ketinggalan!
+					</p>
 				</div>
 				<ExpandableCardDemo />
 			</div>
@@ -69,12 +69,12 @@ function ExpandableCardDemo() {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
-					className="fixed inset-0 bg-black/20 h-full w-full z-10" />
+					className="fixed inset-0 bg-black/20 h-full w-full z-[1001]" />
 			)}
 		</AnimatePresence>
 		<AnimatePresence>
 			{active && typeof active === "object" ? (
-				<div className="fixed inset-0  grid place-items-center z-[100]">
+				<div className="fixed inset-0 grid place-items-center z-[1001] pt-20 sm:pt-0"> 
 					<motion.button
 						key={`button-${active.title}-${id}`}
 						layout
@@ -90,14 +90,14 @@ function ExpandableCardDemo() {
 								duration: 0.05,
 							},
 						}}
-						className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-white rounded-full h-6 w-6"
+						className="flex absolute top-6 right-4 lg:top-4 lg:right-4 items-center justify-center bg-white dark:bg-neutral-800 rounded-full h-8 w-8 shadow-lg z-[1002]" 
 						onClick={() => setActive(null)}>
 						<CloseIcon />
 					</motion.button>
 					<motion.div
 						layoutId={`card-${active.title}-${id}`}
 						ref={ref}
-						className="w-full max-w-[500px]  h-full md:h-fit md:max-h-[90%]  flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden">
+						className="w-full max-w-[500px] h-full md:h-[90vh] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden">
 						<motion.div layoutId={`image-${active.title}-${id}`}>
 							<Image
 								priority
@@ -108,7 +108,7 @@ function ExpandableCardDemo() {
 								className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top" />
 						</motion.div>
 
-						<div>
+						<div className="flex flex-col h-full overflow-hidden"> 
 							<div className="flex justify-between items-start p-4">
 								<div className="">
 									<motion.h3
@@ -134,13 +134,13 @@ function ExpandableCardDemo() {
 									{active.ctaText}
 								</motion.a>
 							</div>
-							<div className="pt-4 relative px-4">
+							<div className="flex-1 overflow-y-auto px-4 pb-4"> {/* Updated for scrolling */}
 								<motion.div
 									layout
 									initial={{ opacity: 0 }}
 									animate={{ opacity: 1 }}
 									exit={{ opacity: 0 }}
-									className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]">
+									className="text-neutral-600 dark:text-neutral-400 text-xs md:text-sm lg:text-base">
 									{typeof active.content === "function"
 										? active.content()
 										: active.content}
@@ -211,9 +211,9 @@ export const CloseIcon = () => {
 			strokeWidth="2"
 			strokeLinecap="round"
 			strokeLinejoin="round"
-			className="h-4 w-4 text-black">
-			<path stroke="none" d="M0 0h24v24H0z" fill="none" />
-			<path d="M18 6l-12 12" />
+			className="h-5 w-5 text-neutral-600 dark:text-neutral-400" // Updated size and color
+		>
+			<path d="M18 6L6 18" />
 			<path d="M6 6l12 12" />
 		</motion.svg>)
 	);
@@ -221,55 +221,55 @@ export const CloseIcon = () => {
 
 const cards = [
 	{
-	  description: "10 April 2025",
-	  title: "Seminar Pemanfaatan Baju Bekas",
-	  src: "https://images.unsplash.com/photo-1542060748-10c28b62716f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-	  ctaText: "Daftar Sekarang",
-	  ctaLink: "#",
-	  content: () => {
-		 return (
-			<p>
-			  Bergabunglah dalam seminar eksklusif tentang pemanfaatan pakaian bekas yang akan membahas cara mengubah pakaian lama menjadi barang yang memiliki nilai baru.
-			  Seminar ini akan menghadirkan para pakar fashion berkelanjutan yang akan memberikan wawasan tentang upcycling, daur ulang tekstil, dan tren fashion eco-friendly. 
-			  <br /> <br />
-			  Acara ini cocok untuk siapa saja yang ingin mengurangi limbah tekstil, mulai dari individu yang ingin lebih peduli terhadap lingkungan hingga pelaku bisnis yang ingin berkontribusi dalam fashion berkelanjutan.
-			</p>
-		 );
-	  },
+		description: "10 April 2025",
+		title: "Seminar Pemanfaatan Baju Bekas",
+		src: "https://images.unsplash.com/photo-1542060748-10c28b62716f?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		ctaText: "Daftar Sekarang",
+		ctaLink: "/education/article/seminar-pemanfaatan-baju-bekas",
+		content: () => {
+			return (
+				<p>
+					Bergabunglah dalam seminar eksklusif tentang pemanfaatan pakaian bekas yang akan membahas cara mengubah pakaian lama menjadi barang yang memiliki nilai baru.
+					Seminar ini akan menghadirkan para pakar fashion berkelanjutan yang akan memberikan wawasan tentang upcycling, daur ulang tekstil, dan tren fashion eco-friendly.
+					<br /> <br />
+					Acara ini cocok untuk siapa saja yang ingin mengurangi limbah tekstil, mulai dari individu yang ingin lebih peduli terhadap lingkungan hingga pelaku bisnis yang ingin berkontribusi dalam fashion berkelanjutan.
+				</p>
+			);
+		},
 	},
 	{
-	  description: "12 April 2025",
-	  title: "Cara Membuat Baju Bekas Menjadi Cuan",
-	  src: "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-	  ctaText: "Lihat Artikel",
-	  ctaLink: "#",
-	  content: () => {
-		 return (
-			<p>
-			  Banyak orang tidak menyadari bahwa pakaian bekas yang sudah tidak terpakai masih memiliki nilai ekonomi tinggi. 
-			  Dalam artikel ini, kami akan membahas berbagai cara untuk mengubah pakaian bekas menjadi sumber penghasilan. 
-			  <br /> <br />
-			  Dari menjual pakaian preloved di platform seperti ThreadCycle, hingga mengubahnya menjadi produk baru melalui teknik upcycling – temukan berbagai strategi yang bisa kamu gunakan untuk memaksimalkan keuntungan dari pakaian lama.
-			</p>
-		 );
-	  },
+		description: "12 April 2025",
+		title: "Cara Membuat Baju Bekas Menjadi Cuan",
+		src: "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		ctaText: "Lihat Artikel",
+		ctaLink: "/education/article/cara-membuat-baju-bekas-menjadi-cuan",
+		content: () => {
+			return (
+				<p>
+					Banyak orang tidak menyadari bahwa pakaian bekas yang sudah tidak terpakai masih memiliki nilai ekonomi tinggi.
+					Dalam artikel ini, kami akan membahas berbagai cara untuk mengubah pakaian bekas menjadi sumber penghasilan.
+					<br /> <br />
+					Dari menjual pakaian preloved di platform seperti ThreadCycle, hingga mengubahnya menjadi produk baru melalui teknik upcycling – temukan berbagai strategi yang bisa kamu gunakan untuk memaksimalkan keuntungan dari pakaian lama.
+				</p>
+			);
+		},
 	},
 	{
-	  description: "15 April 2025",
-	  title: "Mulai Bisnis Dari Baju Bekas",
-	  src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-	  ctaText: "Lihat Artikel",
-	  ctaLink: "#",
-	  content: () => {
-		 return (
-			<p>
-			  Industri fashion berkelanjutan semakin berkembang, dan bisnis pakaian bekas kini menjadi peluang usaha yang menjanjikan. 
-			  Artikel ini akan membahas langkah-langkah memulai bisnis dari pakaian bekas, mulai dari memilih pakaian yang bernilai jual, memasarkan dengan strategi digital, hingga cara membangun brand fashion sustainable yang menarik pelanggan.
-			  <br /> <br />
-			  Jika kamu ingin memiliki bisnis yang ramah lingkungan dan tetap menghasilkan keuntungan, artikel ini akan memberikan panduan lengkap untuk memulai.
-			</p>
-		 );
-	  },
+		description: "15 April 2025",
+		title: "Mulai Bisnis Dari Baju Bekas",
+		src: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+		ctaText: "Lihat Artikel",
+		ctaLink: "/education/article/mulai-bisnis-dari-baju-bekas",
+		content: () => {
+			return (
+				<p>
+					Industri fashion berkelanjutan semakin berkembang, dan bisnis pakaian bekas kini menjadi peluang usaha yang menjanjikan.
+					Artikel ini akan membahas langkah-langkah memulai bisnis dari pakaian bekas, mulai dari memilih pakaian yang bernilai jual, memasarkan dengan strategi digital, hingga cara membangun brand fashion sustainable yang menarik pelanggan.
+					<br /> <br />
+					Jika kamu ingin memiliki bisnis yang ramah lingkungan dan tetap menghasilkan keuntungan, artikel ini akan memberikan panduan lengkap untuk memulai.
+				</p>
+			);
+		},
 	},
- ];
- 
+];
+
