@@ -439,7 +439,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16 overflow-hidden">
+      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16">
         <div className="mb-8" data-aos="fade-up">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
             <span className="text-orange-500">
