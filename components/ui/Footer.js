@@ -11,7 +11,7 @@ const Footer = () => {
       links: [
         { name: "Tentang Kami", href: "/about" },
         { name: "Karir", href: "/careers" },
-        { name: "Blog", href: "/blog" },
+        { name: "Edukasi", href: "/education" },
         { name: "Partner", href: "/partners" },
       ],
     },

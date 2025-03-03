@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { PlaceholdersAndVanishInput } from './placeholders-and-vanish-input';
 import { useTheme } from './theme-provider';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const pathname = usePathname();
@@ -17,6 +18,12 @@ const Navbar = () => {
   const menuRef = useRef(null);
   const [activeMobileIndicator, setActiveMobileIndicator] = useState({ top: 0, height: 0 });
   const mobilMenuRef = useRef(null);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const cartRef = useRef(null);
+  const [isNotificationOpen, setIsNotificationOpen] = useState(false);
+  const notificationRef = useRef(null);
+  const [notificationIconPos, setNotificationIconPos] = useState({ top: 0, right: 0 });
+  const notificationButtonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,6 +72,90 @@ const Navbar = () => {
       updateMobileIndicator();
     }
   }, [pathname, isOpen]);
+
+  const cartItems = [
+    {
+      id: 1,
+      name: "Vintage Denim Jacket",
+      price: 250000,
+      image: "/img/products/1.png",
+      size: "L",
+      quantity: 1
+    },
+    {
+      id: 2,
+      name: "Cotton T-Shirt",
+      price: 150000,
+      image: "/img/products/2.png",
+      size: "M",
+      quantity: 1
+    }
+  ];
+
+  const notifications = [
+    {
+      id: 1,
+      title: "Pesanan Berhasil",
+      message: "Pesanan #123456 telah berhasil diproses",
+      time: "2 menit yang lalu",
+      type: "success",
+      isRead: false
+    },
+    {
+      id: 2,
+      title: "Promo Spesial",
+      message: "Dapatkan diskon 50% untuk produk pilihan",
+      time: "1 jam yang lalu",
+      type: "promo",
+      isRead: true
+    },
+    {
+      id: 3,
+      title: "Stok Tersedia",
+      message: "Produk yang Anda tunggu sudah tersedia",
+      time: "3 jam yang lalu",
+      type: "info",
+      isRead: false
+    }
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        setIsCartOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (notificationRef.current && !notificationRef.current.contains(event.target)) {
+        setIsNotificationOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const updatePosition = () => {
+      if (notificationButtonRef.current) {
+        const rect = notificationButtonRef.current.getBoundingClientRect();
+        setNotificationIconPos({
+          top: rect.bottom + window.scrollY,
+          right: window.innerWidth - rect.right,
+        });
+      }
+    };
+
+    updatePosition();
+    window.addEventListener('resize', updatePosition);
+    return () => window.removeEventListener('resize', updatePosition);
+  }, []);
 
   const menuItems = [
     { name: 'Beranda', href: '/' },
@@ -189,7 +280,9 @@ const Navbar = () => {
                 )}
               </button>
 
-              <button className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300">
+              {/* notification icon */}
+              <button ref={notificationButtonRef}
+                onClick={() => setIsNotificationOpen(true)} className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                 </svg>
@@ -201,7 +294,8 @@ const Navbar = () => {
                 </svg>
               </button>
 
-              <button className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300 relative">
+              {/* icon cart */}
+              <button onClick={() => setIsCartOpen(true)} className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300 relative">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
@@ -254,7 +348,7 @@ const Navbar = () => {
                 )}
               </button>
 
-              <button className="relative p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300">
+              <button onClick={() => setIsCartOpen(true)} className="relative p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
@@ -278,6 +372,161 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      {/* cart modal */}
+      <AnimatePresence>
+        {isCartOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1010]"
+              onClick={() => setIsCartOpen(false)}
+            />
+            <motion.div
+              ref={cartRef}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed right-0 sm:right-4 top-20 w-full max-w-sm bg-white dark:bg-neutral-900 rounded-2xl shadow-xl z-[1020] border border-neutral-200 dark:border-neutral-800"
+            >
+              <div className="p-4 border-b border-neutral-200 dark:border-neutral-800">
+                <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Shopping Cart</h2>
+              </div>
+
+              <div className="p-4 space-y-4 max-h-[60vh] overflow-y-auto">
+                {cartItems.map((item) => (
+                  <div key={item.id} className="flex gap-4">
+                    <div className="relative w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="font-medium text-neutral-900 dark:text-white">{item.name}</h3>
+                      <p className="text-sm text-neutral-500 dark:text-neutral-400">Size: {item.size}</p>
+                      <div className="flex items-center justify-between mt-2">
+                        <p className="font-medium text-orange-500">
+                          Rp {item.price.toLocaleString('id-ID')}
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <button className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-600 dark:text-neutral-400">-</button>
+                          <span className="text-sm text-neutral-900 dark:text-white">{item.quantity}</span>
+                          <button className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-600 dark:text-neutral-400">+</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-4 border-t border-neutral-200 dark:border-neutral-800">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-neutral-600 dark:text-neutral-400">Total</span>
+                  <span className="text-lg font-semibold text-neutral-900 dark:text-white">
+                    Rp {cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toLocaleString('id-ID')}
+                  </span>
+                </div>
+                <Link
+                  href="/checkout"
+                  className="block w-full py-3 px-4 bg-orange-500 hover:bg-orange-600 text-white text-center font-medium rounded-full transition-colors"
+                >
+                  Checkout
+                </Link>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Notification Modal */}
+      <AnimatePresence>
+        {isNotificationOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[1010]"
+              onClick={() => setIsNotificationOpen(false)}
+            />
+            <motion.div
+              ref={notificationRef}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="fixed w-full max-w-sm bg-white dark:bg-neutral-900 rounded-2xl shadow-xl z-[1020] border border-neutral-200 dark:border-neutral-800"
+              style={{
+                top: `${notificationIconPos.top + 10}px`,
+                right: `${notificationIconPos.right}px`,
+                ['@media (maxWidth: 640px)']: {
+                  right: '1rem',
+                  left: '1rem',
+                  width: 'auto',
+                }
+              }}
+            >
+              <div className="p-4 border-b border-neutral-200 dark:border-neutral-800 flex items-center justify-between">
+                <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Notifikasi</h2>
+                <button
+                  className="text-sm text-orange-500 hover:text-orange-600"
+                  onClick={() => {/* Add mark all as read functionality */ }}
+                >
+                  Tandai Sudah Dibaca
+                </button>
+              </div>
+
+              <div className="divide-y divide-neutral-200 dark:divide-neutral-800 max-h-[60vh] overflow-y-auto">
+                {notifications.length > 0 ? (
+                  notifications.map((notification) => (
+                    <div
+                      key={notification.id}
+                      className={`p-4 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors ${!notification.isRead ? 'bg-orange-50/50 dark:bg-orange-900/10' : ''
+                        }`}
+                    >
+                      <div className="flex items-start gap-3">
+                        <div className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${notification.type === 'success' ? 'bg-green-500' :
+                          notification.type === 'promo' ? 'bg-orange-500' : 'bg-blue-500'
+                          }`} />
+                        <div className="flex-1">
+                          <h3 className="text-sm font-medium text-neutral-900 dark:text-white">
+                            {notification.title}
+                          </h3>
+                          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                            {notification.message}
+                          </p>
+                          <span className="text-xs text-neutral-500 dark:text-neutral-500 mt-2 block">
+                            {notification.time}
+                          </span>
+                        </div>
+                        {!notification.isRead && (
+                          <div className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0" />
+                        )}
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div className="p-4 text-center text-neutral-600 dark:text-neutral-400">
+                    Tidak ada notifikasi
+                  </div>
+                )}
+              </div>
+
+              {notifications.length > 0 && (
+                <div className="p-4 border-t border-neutral-200 dark:border-neutral-800">
+                  <button className="block w-full py-2 px-4 text-sm text-center text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white transition-colors">
+                    Lihat Semua Notifikasi
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
 
       <div className={`w-full bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 transition-all duration-300 mt-20 ${scrolled ? 'py-2' : 'py-3'
         }`}>
