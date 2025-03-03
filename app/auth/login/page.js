@@ -13,7 +13,6 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setIsLoading(true);
-		// Simulate API call
 		await new Promise(resolve => setTimeout(resolve, 2000));
 		router.push("/");
 		setIsLoading(false);

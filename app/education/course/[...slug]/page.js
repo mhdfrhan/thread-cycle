@@ -13,7 +13,6 @@ const Course = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate fetching course data
     const generateCourse = () => {
       return {
         title: "Kelas Fashion Berkelanjutan",
@@ -81,23 +80,22 @@ const Course = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Course Header */}
         <div className="mb-12">
-          <Link 
+          <Link
             href="/education"
             className="inline-flex items-center text-orange-500 hover:text-orange-600 mb-6"
           >
-            <svg 
-              className="w-4 h-4 mr-2" 
-              fill="none" 
-              stroke="currentColor" 
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="none"
+              stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M15 19l-7-7 7-7" 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
               />
             </svg>
             Kembali ke Edukasi
@@ -112,7 +110,7 @@ const Course = () => {
                 className="object-cover"
               />
             </div>
-            
+
             <div className="space-y-6">
               <div>
                 <h1 className="text-3xl font-bold text-neutral-900 dark:text-white mb-4">
@@ -168,7 +166,6 @@ const Course = () => {
           </div>
         </div>
 
-        {/* Course Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <h2 className="text-2xl font-bold text-neutral-900 dark:text-white mb-6">
@@ -200,9 +197,8 @@ const Course = () => {
                       </div>
                     </div>
                     <svg
-                      className={`w-5 h-5 transition-transform ${
-                        activeModule === moduleIndex ? "rotate-180" : ""
-                      }`}
+                      className={`w-5 h-5 transition-transform ${activeModule === moduleIndex ? "rotate-180" : ""
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -278,7 +274,6 @@ const Course = () => {
             </div>
           </div>
 
-          {/* Course Info Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 bg-white dark:bg-neutral-800 p-6 rounded-xl border border-neutral-200 dark:border-neutral-700">
               <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-4">

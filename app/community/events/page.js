@@ -10,7 +10,6 @@ const Events = () => {
   const tabsRef = useRef(null);
   const [tabIndicator, setTabIndicator] = useState({ left: 0, width: 0 });
 
-  // Add this useEffect for tab indicator
   useEffect(() => {
     const updateIndicator = () => {
       const activeElement = tabsRef.current?.querySelector(`[data-tab="${activeTab}"]`);
@@ -29,7 +28,6 @@ const Events = () => {
     return () => window.removeEventListener('resize', updateIndicator);
   }, [activeTab]);
 
-  // Function to generate dates for the next few days
   const getUpcomingDates = (days) => {
     const dates = [];
     for (let i = 0; i < days; i++) {
@@ -139,7 +137,6 @@ const Events = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             Event ThreadCycle
@@ -149,13 +146,11 @@ const Events = () => {
           </p>
         </div>
 
-        {/* Tabs with Sliding Indicator */}
         <div className="flex justify-center mb-8">
           <div 
             ref={tabsRef}
             className="relative inline-flex bg-neutral-100 dark:bg-neutral-800 rounded-full p-1"
           >
-            {/* Sliding Indicator */}
             <motion.div
               className="absolute h-full top-0 rounded-full bg-orange-500"
               initial={false}
@@ -170,7 +165,6 @@ const Events = () => {
               }}
             />
 
-            {/* Tab Buttons */}
             <button
               data-tab="upcoming"
               onClick={() => setActiveTab('upcoming')}
@@ -196,7 +190,6 @@ const Events = () => {
           </div>
         </div>
 
-        {/* Event Grid with Animation */}
         <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           initial={false}

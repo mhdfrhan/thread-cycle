@@ -18,7 +18,6 @@ const Forum = () => {
   ];
 
   useEffect(() => {
-    // Simulate fetching forum topics
     const generateTopics = () => {
       return [
         {
@@ -50,7 +49,6 @@ const Forum = () => {
           lastActivity: "5 jam yang lalu",
           tags: ["review", "pengalaman"]
         },
-        // Add more topics here
       ];
     };
 
@@ -60,7 +58,6 @@ const Forum = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 pt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-4">
             Forum Komunitas ThreadCycle
@@ -70,34 +67,28 @@ const Forum = () => {
           </p>
         </div>
 
-        {/* Actions */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
-          {/* Filters */}
           <div className="flex flex-wrap gap-2">
             {filters.map(filter => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeFilter === filter.id
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === filter.id
                     ? 'bg-orange-500 text-white'
                     : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700'
-                }`}
+                  }`}
               >
                 {filter.name}
               </button>
             ))}
           </div>
 
-          {/* Create Topic Button */}
           <button className="w-full md:w-auto px-6 py-2 bg-orange-500 text-white rounded-full hover:bg-orange-600 transition-colors">
             Buat Topik Baru
           </button>
         </div>
 
-        {/* Topics List */}
         <div className="space-y-6">
-          {/* Pinned Topics */}
           {topics.filter(topic => topic.isPinned).map(topic => (
             <motion.div
               key={topic.id}
@@ -151,7 +142,6 @@ const Forum = () => {
             </motion.div>
           ))}
 
-          {/* Regular Topics */}
           {topics.filter(topic => !topic.isPinned).map(topic => (
             <motion.div
               key={topic.id}

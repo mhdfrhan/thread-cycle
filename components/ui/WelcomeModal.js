@@ -16,7 +16,7 @@ export const WelcomeModal = () => {
   }, []);
 
   const handleClose = () => {
-    Cookies.set('hasSeenWelcome', 'true', { expires: 365 });
+    Cookies.set('hasSeenWelcome', 'true', { expires: 7 });
     setIsOpen(false);
   };
 

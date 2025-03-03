@@ -8,23 +8,15 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 flex items-center justify-center px-4">
       <div className="max-w-3xl mx-auto text-center">
-        {/* Animated 404 Image */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
           className="relative w-full h-64 md:h-80 mb-8"
         >
-          <Image
-            src="/img/404.svg"
-            alt="404 Illustration"
-            fill
-            className="object-contain"
-            priority
-          />
+          <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-9xl lg:text-[250px] font-bold text-neutral-200 dark:text-neutral-800">404</h1>
         </motion.div>
 
-        {/* Error Message */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -38,7 +30,6 @@ export default function NotFound() {
           </p>
         </motion.div>
 
-        {/* Action Buttons */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

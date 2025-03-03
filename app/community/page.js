@@ -48,7 +48,6 @@ const Community = () => {
       lastActivity: "2 jam yang lalu",
       tags: ["tips", "perawatan"],
     },
-    // Add more topics...
   ];
 
   const activeMembers = [
@@ -60,14 +59,12 @@ const Community = () => {
       contributions: 156,
       joinDate: "Feb 2024",
     },
-    // Add more members...
   ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
@@ -76,7 +73,7 @@ const Community = () => {
             Komunitas ThreadCycle
           </h1>
           <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-8">
-            Bergabunglah dengan komunitas fashion berkelanjutan terbesar di Indonesia. 
+            Bergabunglah dengan komunitas fashion berkelanjutan terbesar di Indonesia.
             Berbagi pengalaman, bertukar pakaian, dan ciptakan perubahan positif bersama.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -89,7 +86,6 @@ const Community = () => {
           </div>
         </motion.div>
 
-        {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
           {communityStats.map((stat, index) => (
             <motion.div
@@ -105,13 +101,12 @@ const Community = () => {
           ))}
         </div>
 
-        {/* Upcoming Events */}
         <section className="mb-16">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
               Event Mendatang
             </h2>
-            <Link 
+            <Link
               href="/community/events"
               className="text-orange-500 hover:text-orange-600 transition-colors"
             >
@@ -159,7 +154,7 @@ const Community = () => {
                       <span>{event.attendees}/{event.maxAttendees}</span>
                     </div>
                     <div className="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2">
-                      <div 
+                      <div
                         className="bg-orange-500 h-2 rounded-full"
                         style={{ width: `${(event.attendees / event.maxAttendees) * 100}%` }}
                       />
@@ -174,13 +169,12 @@ const Community = () => {
           </div>
         </section>
 
-        {/* Forum Section */}
         <section className="mb-16">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-2xl font-bold text-neutral-900 dark:text-white">
               Forum Diskusi
             </h2>
-            <Link 
+            <Link
               href="/community/forum"
               className="text-orange-500 hover:text-orange-600 transition-colors"
             >
@@ -209,7 +203,7 @@ const Community = () => {
                     </h3>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {topic.tags.map((tag) => (
-                        <span 
+                        <span
                           key={tag}
                           className="px-2 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-xs rounded-full"
                         >
@@ -229,7 +223,6 @@ const Community = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
         <section className="mb-16">
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 md:p-12">
             <div className="max-w-2xl mx-auto text-center">

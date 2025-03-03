@@ -112,14 +112,14 @@ const Navbar = () => {
                   alt="ThreadCycle"
                   width={40}
                   height={40}
-                  className="w-auto h-16 hidden dark:block"
+                  className="w-auto h-14 sm:h-16 hidden dark:block"
                 />
                 <Image
                   src="/img/logo-dark.svg"
                   alt="ThreadCycle"
                   width={40}
                   height={40}
-                  className="w-auto h-16 dark:hidden"
+                  className="w-auto h-14 sm:h-16 dark:hidden"
                 />
               </Link>
             </div>
@@ -152,7 +152,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="hidden lg:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-2.5">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300"
@@ -188,6 +188,27 @@ const Navbar = () => {
                   </svg>
                 )}
               </button>
+
+              <button className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+              </button>
+
+              <button className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </button>
+
+              <button className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300 relative">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+
+                <span className='absolute top-0 right-0 w-4 h-4 bg-orange-500 rounded-full text-[10px] text-white flex items-center justify-center'>2</span>
+              </button>
+
               <Link
                 href="/auth/login"
                 className="inline-flex items-center px-6 py-2 text-sm font-medium rounded-full text-white bg-orange-500 hover:bg-orange-600 transition-all duration-300"
@@ -196,7 +217,7 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="lg:hidden flex items-center space-x-4">
+            <div className="lg:hidden flex items-center space-x-2">
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300"
@@ -232,6 +253,14 @@ const Navbar = () => {
                   </svg>
                 )}
               </button>
+
+              <button className="relative p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                </svg>
+                <span className='absolute top-0 right-0 w-4 h-4 bg-orange-500 rounded-full text-[10px] text-white flex items-center justify-center'>2</span>
+              </button>
+
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="inline-flex items-center justify-center p-2 rounded-md text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300 relative"
@@ -259,8 +288,8 @@ const Navbar = () => {
                 key={category.name}
                 href={category.href}
                 className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 ${pathname === category.href
-                    ? 'bg-orange-500 text-white'
-                    : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                  ? 'bg-orange-500 text-white'
+                  : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
                   }`}
               >
                 <span>{category.icon}</span>
@@ -279,8 +308,8 @@ const Navbar = () => {
                 key={category.name}
                 href={category.href}
                 className={`flex-shrink-0 px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 whitespace-nowrap ${pathname === category.href
-                    ? 'bg-orange-500 text-white'
-                    : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                  ? 'bg-orange-500 text-white'
+                  : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
                   }`}
               >
                 <span>{category.icon}</span>

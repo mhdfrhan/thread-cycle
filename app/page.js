@@ -456,7 +456,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section data-aos="fade-up">
+      <section>
         <UpcomingEvents />
       </section>
 

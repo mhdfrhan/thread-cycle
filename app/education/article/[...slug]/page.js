@@ -19,7 +19,6 @@ const DetailEdukasi = () => {
 	};
 
 	useEffect(() => {
-		// Simulate fetching article data
 		const generateArticle = () => {
 			return {
 				title: formatTitle(slug),
