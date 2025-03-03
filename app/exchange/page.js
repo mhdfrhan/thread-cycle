@@ -165,7 +165,9 @@ const Exchange = () => {
       isOpen: true,
       type: "success",
       title: "Poin Bertambah",
-      message: `Selamat! Anda mendapatkan ${earnedPoints} poin!`
+      message: `Selamat! Anda mendapatkan ${earnedPoints} poin!`,
+      onConfirm: null,
+      onCancel: () => setModal(prev => ({ ...prev, isOpen: false }))
     });
   };
 
@@ -239,7 +241,7 @@ const Exchange = () => {
         <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-2">
           {item.description}
         </p>
-        <div className="flex items-center justify-between mb-4">
+        <div className="flex flex-wrap gap-1 items-center justify-between mb-4">
           <span className="text-sm text-neutral-500 dark:text-neutral-400">
             Oleh: {item.owner}
           </span>
@@ -252,7 +254,7 @@ const Exchange = () => {
           <button
             onClick={() => handleExchange(item)}
             disabled={userPoints < item.points}
-            className={`w-full py-2 rounded-lg text-sm font-medium transition-all duration-300 ${userPoints < item.points
+            className={`w-full py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 ${userPoints < item.points
               ? "bg-neutral-200 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400 cursor-not-allowed"
               : "bg-orange-500 text-white hover:bg-orange-600"
               }`}
@@ -262,7 +264,7 @@ const Exchange = () => {
         ) : (
           <button
             onClick={() => handleCancelExchange(item)}
-            className="w-full py-2 bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 rounded-lg text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-all duration-300"
+            className="w-full py-2 bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400 rounded-lg sm:text-sm font-medium hover:bg-neutral-200 dark:hover:bg-neutral-600 transition-all duration-300 px-2 text-xs"
           >
             Batalkan Penukaran
           </button>
@@ -460,7 +462,7 @@ const Exchange = () => {
                 <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-6">
                   Pakaian Saya
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {myClothes.map((item) => (
                     <ExchangeCard key={item.id} item={item} type="my" />
                   ))}
@@ -471,7 +473,7 @@ const Exchange = () => {
                 <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-6">
                   Pakaian Tersedia
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {availableClothes.map((item) => (
                     <ExchangeCard key={item.id} item={item} type="available" />
                   ))}
