@@ -1,3 +1,9 @@
+"use client";
+
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import HomeBanner from "@/components/ui/HomeBanner";
 import InfiniteText from "@/components/ui/InfiniteText";
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials";
@@ -7,10 +13,6 @@ import { UpcomingEvents } from "@/app/section/UpcomingEvents";
 import Image from "next/image";
 import About from "./section/About";
 import Link from "next/link";
-
-export const metadata = {
-  title: "Home | ThreadCycle",
-}
 
 const Home = () => {
   const steps = [
@@ -170,47 +172,63 @@ const Home = () => {
     }
   ];
 
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: 'ease-out',
+    });
+  }, []);
+
   return (
     <>
       <div>
         <InfiniteText />
       </div>
-      <section className="relative overflow-hidden pb-16">
+
+      <section className="overflow-hidden relative pb-16">
         <HomeBanner />
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-16">
+      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
         <About />
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        {/* <HowItWorksSection /> */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 text-center">Bagaimana ThreadCycle Bekerja</h2>
+      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16">
+        <div className="text-center mb-8" data-aos="fade-up">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold mb-4 text-center">
+            Bagaimana ThreadCycle Bekerja
+          </h2>
           <p className="text-sm sm:text-lg text-neutral-400 max-w-2xl mx-auto">
             Bergabunglah dengan revolusi fashion berkelanjutan dalam 4 langkah sederhana
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {steps.map((step) => (
-            <CardSpotlight key={step.id} className={`relative`}>
-              <div className="size-16 z-20 relative flex items-center justify-center rounded-full bg-orange-600/20 text-4xl mb-4">
-                {step.icon}
-              </div>
-              <p className="text-xl font-bold relative z-20 mt-2 text-white">
-                {step.title}
-              </p>
-              <div className="text-neutral-200 mt-4 relative z-20">
-                {step.description}
-              </div>
-            </CardSpotlight>
+          {steps.map((step, index) => (
+            <div
+              key={step.id}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
+              <CardSpotlight className={`relative`}>
+                <div className="size-16 z-20 relative flex items-center justify-center rounded-full bg-orange-600/20 text-4xl mb-4">
+                  {step.icon}
+                </div>
+                <p className="text-xl font-bold relative z-20 mt-2 text-white">
+                  {step.title}
+                </p>
+                <div className="text-neutral-200 mt-4 relative z-20">
+                  {step.description}
+                </div>
+              </CardSpotlight>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="py-16 bg-neutral-100 dark:bg-neutral-950">
-        <div className="max-w-7xl mx-auto px-4 ">
-          <div className="text-center mb-8">
+      <section className="overflow-hidden py-16 bg-neutral-100 dark:bg-neutral-950">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-8" data-aos="fade-up">
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
               <span className="text-orange-500">
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
@@ -222,16 +240,22 @@ const Home = () => {
             </h1>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-y-8">
-            {popularProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {popularProducts.map((product, index) => (
+              <div
+                key={product.id}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white dark:bg-neutral-900">
+      <section className="overflow-hidden py-16 bg-white dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className="text-center mb-12" data-aos="fade-up">
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
               <span className="text-orange-500">
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
@@ -257,17 +281,20 @@ const Home = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredItems.map((item) => (
+            {featuredItems.map((item, index) => (
               <div
                 key={item.id}
+                data-aos="zoom-in"
+                data-aos-delay={index * 200}
                 className="group relative overflow-hidden rounded-2xl"
               >
                 <div className="relative h-[400px] w-full overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-10" />
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.name}
-                    className="h-full w-full object-cover object-center transform group-hover:scale-110 transition-transform duration-500"
+                    fill
+                    className="object-cover object-center transform group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
                     <span className="inline-flex items-center rounded-full bg-orange-600/20 px-3 py-1 text-sm text-orange-400 backdrop-blur-sm w-fit mb-3">
@@ -292,12 +319,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-16">
+      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
         <div>
-          {/* <video className="w-full rounded-xl" autoPlay loop muted>
-              <source src="/video/bg.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video> */}
           <div className="relative overflow-hidden rounded-2xl">
             <video className="w-full rounded-2xl" autoPlay loop muted preload="none">
               <source src="/video/bg.mp4" type="video/mp4" />
@@ -328,10 +351,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-16">
+      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16">
         <div>
           <div className="max-w-sm mx-auto lg:max-w-none py-12">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center" data-aos="fade-up">
               <span className="text-orange-500">
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
               </span>
@@ -340,42 +363,84 @@ const Home = () => {
                 <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
               </span>
             </h1>
-            <p className="text-sm sm:text-lg text-neutral-400 max-w-2xl mx-auto text-center mb-8">
+            <p className="text-sm sm:text-lg text-neutral-400 max-w-2xl mx-auto text-center mb-8" data-aos="fade-up" data-aos-delay="100">
               Jelajahi koleksi produk yang tersedia di ThreadCycle dan temukan pakaian bekas berkualitas dengan harga yang terjangkau.
             </p>
 
             <div className="flex flex-wrap -mx-2 lg:-mx-4 -mb-8 items-center">
-              <div className="w-full sm:w-3/12 px-2 lg:px-4 mb-4 lg:mb-8">
-                <img className="block rounded-xl w-full" src="/img/products/3.png" alt="" />
+              <div className="w-full sm:w-3/12 px-2 lg:px-4 mb-4 lg:mb-8" data-aos="fade-right">
+                <div className="relative w-full aspect-square">
+                  <Image
+                    src="/img/products/3.png"
+                    alt="Product 3"
+                    fill
+                    className="rounded-xl object-cover"
+                  />
+                </div>
               </div>
-              <div className="w-full sm:w-6/12 px-2 lg:px-4 mb-4 lg:mb-8">
+              <div className="w-full sm:w-6/12 px-2 lg:px-4 mb-4 lg:mb-8" data-aos="zoom-in" data-aos-delay="200">
                 <div className="flex flex-wrap -mx-2 md:-mx-4 mb-4 lg:mb-8">
                   <div className="w-2/3 px-2 lg:px-4">
-                    <img className="block rounded-xl w-full" src="/img/products/6.png" alt="" />
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        src="/img/products/6.png"
+                        alt="Product 6"
+                        fill
+                        className="rounded-xl object-cover"
+                      />
+                    </div>
                   </div>
                   <div className="w-1/3 px-2 lg:px-4 self-end">
-                    <img className="block rounded-xl w-full" src="/img/products/5.png" alt="" />
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        src="/img/products/5.png"
+                        alt="Product 5"
+                        fill
+                        className="rounded-xl object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className="flex flex-wrap -mx-2 md:-mx-4">
                   <div className="w-1/3 px-2 lg:px-4">
-                    <img className="block rounded-xl w-full" src="/img/products/1.png" alt="" />
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        src="/img/products/1.png"
+                        alt="Product 1"
+                        fill
+                        className="rounded-xl object-cover"
+                      />
+                    </div>
                   </div>
                   <div className="w-2/3 px-2 lg:px-4">
-                    <img className="block rounded-xl w-full" src="/img/products/2.png" alt="" />
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        src="/img/products/2.png"
+                        alt="Product 2"
+                        fill
+                        className="rounded-xl object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="w-full sm:w-3/12 px-2 lg:px-4 mb-4 lg:mb-8">
-                <img className="rounded-xl w-full bg-coolGray-100" src="/img/products/4.png" alt="" />
+              <div className="w-full sm:w-3/12 px-2 lg:px-4 mb-4 lg:mb-8" data-aos="fade-left">
+                <div className="relative w-full aspect-square">
+                  <Image
+                    src="/img/products/4.png"
+                    alt="Product 4"
+                    fill
+                    className="rounded-xl object-cover"
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-16 overflow-hidden">
-        <div className="mb-8">
+      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16 overflow-hidden">
+        <div className="mb-8" data-aos="fade-up">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
             <span className="text-orange-500">
               <svg className="size-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><rect width="256" height="256" fill="none" /><line x1="128" y1="40" x2="128" y2="216" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="80" x2="208" y2="176" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /><line x1="48" y1="176" x2="208" y2="80" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="16" /></svg>
@@ -386,15 +451,17 @@ const Home = () => {
             </span>
           </h1>
         </div>
-        <AnimatedTestimonials testimonials={testimonials} />
+        <div data-aos="fade-up" data-aos-delay="200">
+          <AnimatedTestimonials testimonials={testimonials} />
+        </div>
       </section>
 
-      <section>
+      <section data-aos="fade-up">
         <UpcomingEvents />
       </section>
 
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <div className="mb-8">
+      <section className="overflow-hidden max-w-7xl mx-auto px-4 py-16">
+        <div className="mb-8" data-aos="fade-up">
           <h1 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
             Download Aplikasi ThreadCycle
           </h1>
@@ -403,10 +470,10 @@ const Home = () => {
           </p>
         </div>
 
-        <div>
+        <div data-aos="zoom-in">
           <Image src={"/img/application-mockup.png"} alt="Application Mockup" width={800} height={400} className="mx-auto max-w-60" />
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 mt-8" data-aos="fade-up" data-aos-delay="200">
           <div className="flex flex-col items-center mb-4 md:mb-0">
             <Image src="/img/app-store.svg" alt="App Store" width={150} height={60} />
           </div>

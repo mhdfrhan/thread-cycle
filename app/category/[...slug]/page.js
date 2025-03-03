@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -15,14 +15,31 @@ const Category = () => {
 		size: "all",
 	});
 
-	const categoryNames = {
+	const categoryNames = useMemo(() => ({
 		"all": "Semua Kategori",
 		"women": "Pakaian Wanita",
 		"men": "Pakaian Pria",
 		"vintage": "Vintage",
 		"streetwear": "Streetwear",
 		"sustainable": "Sustainable",
-	};
+	}), []);
+
+	const conditions = useMemo(() => [
+		{ id: "all", name: "Semua Kondisi" },
+		{ id: "new", name: "Baru" },
+		{ id: "like-new", name: "Seperti Baru" },
+		{ id: "good", name: "Baik" },
+		{ id: "fair", name: "Cukup Baik" },
+	], []);
+
+	const sizes = useMemo(() => [
+		{ id: "all", name: "Semua Ukuran" },
+		{ id: "xs", name: "XS" },
+		{ id: "s", name: "S" },
+		{ id: "m", name: "M" },
+		{ id: "l", name: "L" },
+		{ id: "xl", name: "XL" },
+	], []);
 
 	const priceRanges = [
 		{ id: "all", name: "Semua Harga" },
@@ -30,23 +47,6 @@ const Category = () => {
 		{ id: "50-100", name: "50K - 100K" },
 		{ id: "100-200", name: "100K - 200K" },
 		{ id: "200-plus", name: "200K+" },
-	];
-
-	const conditions = [
-		{ id: "all", name: "Semua Kondisi" },
-		{ id: "new", name: "Baru" },
-		{ id: "like-new", name: "Seperti Baru" },
-		{ id: "good", name: "Baik" },
-		{ id: "fair", name: "Cukup Baik" },
-	];
-
-	const sizes = [
-		{ id: "all", name: "Semua Ukuran" },
-		{ id: "xs", name: "XS" },
-		{ id: "s", name: "S" },
-		{ id: "m", name: "M" },
-		{ id: "l", name: "L" },
-		{ id: "xl", name: "XL" },
 	];
 
 	useEffect(() => {
@@ -63,7 +63,7 @@ const Category = () => {
 		};
 
 		setProducts(generateProducts());
-	}, [slug]);
+	}, [slug, categoryNames, conditions, sizes]);
 
 
 	const FilterButton = () => (
@@ -98,8 +98,8 @@ const Category = () => {
 						key={option.id}
 						onClick={() => setFilters(prev => ({ ...prev, [filterType]: option.id }))}
 						className={`px-4 py-2 rounded-lg text-sm transition-all duration-300 ${currentValue === option.id
-								? "bg-orange-500 text-white"
-								: "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+							? "bg-orange-500 text-white"
+							: "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
 							}`}
 					>
 						{option.name}

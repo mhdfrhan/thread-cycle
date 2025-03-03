@@ -5,10 +5,44 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
+const categories = [
+  { id: "all", name: "Semua" },
+  { id: "tops", name: "Atasan" },
+  { id: "bottoms", name: "Bawahan" },
+  { id: "dresses", name: "Dress" },
+  { id: "outerwear", name: "Outerwear" },
+  { id: "accessories", name: "Aksesoris" },
+];
+
+const priceRanges = [
+  { id: "all", name: "Semua Harga" },
+  { id: "0-50", name: "Dibawah 50K" },
+  { id: "50-100", name: "50K - 100K" },
+  { id: "100-200", name: "100K - 200K" },
+  { id: "200-plus", name: "200K+" },
+];
+
+const conditions = [
+  { id: "all", name: "Semua Kondisi" },
+  { id: "new", name: "Baru" },
+  { id: "like-new", name: "Seperti Baru" },
+  { id: "good", name: "Baik" },
+  { id: "fair", name: "Cukup Baik" },
+];
+
+const sizes = [
+  { id: "all", name: "Semua Ukuran" },
+  { id: "xs", name: "XS" },
+  { id: "s", name: "S" },
+  { id: "m", name: "M" },
+  { id: "l", name: "L" },
+  { id: "xl", name: "XL" },
+  { id: "xxl", name: "XXL" },
+];
 
 const Marketplace = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [products, setProducts] = useState([]); // Start with empty array
+  const [products, setProducts] = useState([]);
   const [filters, setFilters] = useState({
     category: "all",
     priceRange: "all",
@@ -16,41 +50,6 @@ const Marketplace = () => {
     brand: "all",
     size: "all",
   });
-
-  const categories = [
-    { id: "all", name: "Semua" },
-    { id: "tops", name: "Atasan" },
-    { id: "bottoms", name: "Bawahan" },
-    { id: "dresses", name: "Dress" },
-    { id: "outerwear", name: "Outerwear" },
-    { id: "accessories", name: "Aksesoris" },
-  ];
-
-  const priceRanges = [
-    { id: "all", name: "Semua Harga" },
-    { id: "0-50", name: "Dibawah 50K" },
-    { id: "50-100", name: "50K - 100K" },
-    { id: "100-200", name: "100K - 200K" },
-    { id: "200-plus", name: "200K+" },
-  ];
-
-  const conditions = [
-    { id: "all", name: "Semua Kondisi" },
-    { id: "new", name: "Baru" },
-    { id: "like-new", name: "Seperti Baru" },
-    { id: "good", name: "Baik" },
-    { id: "fair", name: "Cukup Baik" },
-  ];
-
-  const sizes = [
-    { id: "all", name: "Semua Ukuran" },
-    { id: "xs", name: "XS" },
-    { id: "s", name: "S" },
-    { id: "m", name: "M" },
-    { id: "l", name: "L" },
-    { id: "xl", name: "XL" },
-    { id: "xxl", name: "XXL" },
-  ];
 
   useEffect(() => {
     const generateProducts = () => {
@@ -71,7 +70,6 @@ const Marketplace = () => {
 
     setProducts(generateProducts());
   }, []);
-
 
   if (products.length === 0) {
     return (

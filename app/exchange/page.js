@@ -1,11 +1,28 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Modal from "@/components/ui/modal";
 
 const Exchange = () => {
+  const categories = useMemo(() => [
+    { id: "all", name: "Semua Kategori" },
+    { id: "tops", name: "Atasan", points: 100 },
+    { id: "bottoms", name: "Bawahan", points: 120 },
+    { id: "dresses", name: "Dress", points: 150 },
+    { id: "outerwear", name: "Outerwear", points: 200 },
+    { id: "accessories", name: "Aksesoris", points: 50 },
+  ], []);
+
+  const conditions = useMemo(() => [
+    { id: "all", name: "Semua Kondisi" },
+    { id: "new", name: "Baru", multiplier: 1.5 },
+    { id: "like-new", name: "Seperti Baru", multiplier: 1.2 },
+    { id: "good", name: "Baik", multiplier: 1.0 },
+    { id: "fair", name: "Cukup Baik", multiplier: 0.8 },
+  ], []);
+
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [userPoints, setUserPoints] = useState(1500);
   const [myClothes, setMyClothes] = useState([]);
@@ -25,15 +42,6 @@ const Exchange = () => {
     onCancel: null
   });
 
-  const categories = [
-    { id: "all", name: "Semua Kategori" },
-    { id: "tops", name: "Atasan", points: 100 },
-    { id: "bottoms", name: "Bawahan", points: 120 },
-    { id: "dresses", name: "Dress", points: 150 },
-    { id: "outerwear", name: "Outerwear", points: 200 },
-    { id: "accessories", name: "Aksesoris", points: 50 },
-  ];
-
   const pointRanges = [
     { id: "all", name: "Semua Poin" },
     { id: "0-100", name: "0 - 100 Poin" },
@@ -42,18 +50,10 @@ const Exchange = () => {
     { id: "301-plus", name: "300+ Poin" },
   ];
 
-  const conditions = [
-    { id: "all", name: "Semua Kondisi" },
-    { id: "new", name: "Baru", multiplier: 1.5 },
-    { id: "like-new", name: "Seperti Baru", multiplier: 1.2 },
-    { id: "good", name: "Baik", multiplier: 1.0 },
-    { id: "fair", name: "Cukup Baik", multiplier: 0.8 },
-  ];
-
   useEffect(() => {
     const generateClothes = () => {
       return Array.from({ length: 24 }, (_, i) => ({
-        id: `available-${i + 1}`, 
+        id: `available-${i + 1}`,
         name: `Pakaian ${i + 1}`,
         points: Math.floor(Math.random() * 200) + 50,
         category: categories[Math.floor(Math.random() * categories.length)].id,
@@ -69,10 +69,10 @@ const Exchange = () => {
 
     const myItems = available.slice(0, 4).map(item => ({
       ...item,
-      id: `my-${item.id}`, 
+      id: `my-${item.id}`,
     }));
     setMyClothes(myItems);
-  }, []);
+  }, [categories, conditions]);
 
   const handleFilterChange = (filterType, value) => {
     setFilters(prev => ({
@@ -288,7 +288,7 @@ const Exchange = () => {
       <Modal
         isOpen={modal.isOpen}
         onClose={modal.onCancel}
-        onConfirm={modal.onConfirm} 
+        onConfirm={modal.onConfirm}
         title={modal.title}
         type={modal.type}
       >

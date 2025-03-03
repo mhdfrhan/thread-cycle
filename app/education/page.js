@@ -25,6 +25,15 @@ const Education = () => {
       category: "Perawatan",
       readTime: "8 min read",
     },
+    {
+      id: 3,
+      title: "Cara Membuat Baju Bekas Menjadi Cuan",
+      slug: "cara-membuat-baju-bekas-menjadi-cuan",
+      description: "Pelajari cara membuat baju bekas menjadi cuan dan menjualnya secara online",
+      image: "https://images.unsplash.com/photo-1540221652346-e5dd6b50f3e7?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Fashion",
+      readTime: "6 min read",
+    },
   ];
 
   const courses = [
@@ -34,6 +43,26 @@ const Education = () => {
       slug: "kelas-fashion-berkelanjutan",
       description: "Pelajari dasar-dasar fashion berkelanjutan dan cara menerapkannya",
       image: "https://images.unsplash.com/photo-1676278746104-a31a9ab267d9?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      level: "Pemula",
+      duration: "4 Minggu",
+      price: "Gratis",
+    },
+    {
+      id: 2,
+      title: "Kelas Perawatan Pakaian",
+      slug: "kelas-perawatan-pakaian",
+      description: "Pelajari cara merawat berbagai jenis pakaian dengan benar",
+      image: "https://images.unsplash.com/photo-1582735689369-4fe89db7114c?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      level: "Pemula",
+      duration: "4 Minggu",
+      price: "Gratis",
+    },
+    {
+      id: 3,
+      title: "Kelas Membuat Baju Bekas Menjadi Cuan",
+      slug: "kelas-membuat-baju-bekas-menjadi-cuan",
+      description: "Pelajari cara membuat baju bekas menjadi cuan dan menjualnya secara online",
+      image: "https://images.unsplash.com/photo-1484502249930-e1da807099a5?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       level: "Pemula",
       duration: "4 Minggu",
       price: "Gratis",
@@ -66,8 +95,8 @@ const Education = () => {
                 fill
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-8">
+              <div className="lg:absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 hidden lg:block">
                 <span className="px-3 py-1 bg-orange-500 text-white text-sm rounded-full mb-4 inline-block">
                   Featured
                 </span>
@@ -99,6 +128,37 @@ const Education = () => {
               </div>
             </div>
           </div>
+
+          <div className="lg:hidden mt-4">
+                <span className="px-3 py-1 bg-orange-500 text-white text-sm rounded-full mb-4 inline-block">
+                  Featured
+                </span>
+                <h2 className="text-3xl font-bold mb-4">
+                  Memulai Perjalanan Fashion Berkelanjutan Anda
+                </h2>
+                <p className="text-neutral-500 dark:text-neutral-400 mb-6 max-w-2xl">
+                  Panduan lengkap untuk memahami dan menerapkan gaya hidup fashion yang berkelanjutan
+                </p>
+                <Link
+                  href="/education/article/getting-started"
+                  className="inline-flex items-center px-5 py-2.5 bg-orange-500 dark:bg-white text-white dark:text-neutral-900 rounded-full hover:bg-neutral-100 transition-colors duration-300 text-sm"
+                >
+                  Baca Selengkapnya
+                  <svg
+                    className="w-5 h-5 ml-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+              </div>
         </motion.div>
 
         <section className="mb-16">
@@ -224,8 +284,8 @@ const Education = () => {
             <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
-                placeholder="Masukkan email Anda"
-                className="flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+                placeholder="Ketikkan email Anda disini..."
+                className="flex-1 px-4 py-3 rounded-lg focus:outline-none border border-transparent placeholder:!text-orange-200 bg-transparent focus:border-orange-300 focus:ring-2 focus:ring-orange-500 text-orange-200"
               />
               <button className="px-6 py-3 bg-white text-orange-500 rounded-lg hover:bg-orange-50 transition-colors duration-300">
                 Berlangganan

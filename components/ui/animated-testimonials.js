@@ -3,7 +3,7 @@
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export const AnimatedTestimonials = ({
 	testimonials,
@@ -12,29 +12,27 @@ export const AnimatedTestimonials = ({
 	const [isClient, setIsClient] = useState(false);
 	const [active, setActive] = useState(0);
 
-	// Handle client-side mounting
+	const handleNext = useCallback(() => {
+		setActive((prev) => (prev + 1) % testimonials.length);
+	}, [testimonials.length]);
+
+	const handlePrev = useCallback(() => {
+		setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+	}, [testimonials.length]);
+
 	useEffect(() => {
 		setIsClient(true);
 	}, []);
-
-	const handleNext = () => {
-		setActive((prev) => (prev + 1) % testimonials.length);
-	};
-
-	const handlePrev = () => {
-		setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-	};
 
 	useEffect(() => {
 		if (autoplay && isClient) {
 			const interval = setInterval(handleNext, 5000);
 			return () => clearInterval(interval);
 		}
-	}, [autoplay, isClient]);
+	}, [autoplay, isClient, handleNext]); 
 
 	const randomRotateY = () => Math.floor(Math.random() * 21) - 10;
 
-	// Don't render until client-side
 	if (!isClient) {
 		return null;
 	}

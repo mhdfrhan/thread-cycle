@@ -36,6 +36,8 @@ const Navbar = () => {
           left: left - menuLeft,
           width: width,
         });
+      } else {
+        setActiveIndicator({ left: 0, width: 0 });
       }
     };
 
@@ -54,6 +56,8 @@ const Navbar = () => {
           top: top - menuTop,
           height: height,
         });
+      } else {
+        setActiveMobileIndicator({ top: 0, height: 0 });
       }
     };
 
@@ -125,7 +129,7 @@ const Navbar = () => {
               className="hidden lg:flex items-center space-x-1 border border-neutral-200 dark:border-neutral-800 rounded-full py-1 px-2 bg-neutral-50/80 dark:bg-neutral-900/80 relative"
             >
               <div
-                className="absolute h-[calc(100%-8px)] transition-all duration-300 ease-out"
+                className={`absolute h-[calc(100%-8px)] transition-all duration-300 ease-out ${!menuItems.some(item => item.href === pathname) ? 'opacity-0' : 'opacity-100'}`}
                 style={{
                   left: `${activeIndicator.left}px`,
                   width: `${activeIndicator.width}px`,
@@ -254,11 +258,10 @@ const Navbar = () => {
               <Link
                 key={category.name}
                 href={category.href}
-                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 ${
-                  pathname === category.href
+                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 ${pathname === category.href
                     ? 'bg-orange-500 text-white'
                     : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                }`}
+                  }`}
               >
                 <span>{category.icon}</span>
                 <span>{category.name}</span>
@@ -275,11 +278,10 @@ const Navbar = () => {
               <Link
                 key={category.name}
                 href={category.href}
-                className={`flex-shrink-0 px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 whitespace-nowrap ${
-                  pathname === category.href
+                className={`flex-shrink-0 px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 whitespace-nowrap ${pathname === category.href
                     ? 'bg-orange-500 text-white'
                     : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                }`}
+                  }`}
               >
                 <span>{category.icon}</span>
                 <span>{category.name}</span>
@@ -296,7 +298,7 @@ const Navbar = () => {
           className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-neutral-900 border-b border-neutral-200 dark:border-neutral-800 relative"
         >
           <div
-            className="absolute left-2 right-2 transition-all duration-300 ease-out"
+            className={`absolute left-2 right-2 transition-all duration-300 ease-out ${!menuItems.some(item => item.href === pathname) ? 'opacity-0' : 'opacity-100'}`}
             style={{
               top: `${activeMobileIndicator.top}px`,
               height: `${activeMobileIndicator.height}px`,
