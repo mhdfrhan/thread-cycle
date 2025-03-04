@@ -72,6 +72,109 @@ const Education = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="overflow-hidden bg-white dark:bg-neutral-900 pb-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-900 dark:text-white mb-4">
+              Dampak Fashion terhadap Bumi Kita
+            </h2>
+            <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto text-lg">
+              Industri fashion adalah salah satu kontributor terbesar pencemaran lingkungan. Mari kita ubah ini bersama!
+            </p>
+          </div>
+
+          <div>
+            <div className="relative order-2 lg:order-1" data-aos="fade-right">
+              <Image className="rounded-2xl w-full max-h-[300px] object-cover object-center" src="https://images.unsplash.com/photo-1560036039-801e62d634b5?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" width={1000} height={300} alt="Dampak Fashion" />
+            </div>
+
+            <div className="order-1 lg:order-2 mt-10" data-aos="fade-left">
+              <div className="grid sm:grid-cols-2 gap-6">
+                <div className="relative">
+                  <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-800">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-1">
+                        85% Pakaian Terbuang
+                      </h3>
+                      <p className="text-neutral-600 dark:text-neutral-400">
+                        Setiap tahun, jutaan ton pakaian berakhir di tempat pembuangan sampah, mencemari tanah dan air.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-800">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-1">
+                        Krisis Air Global
+                      </h3>
+                      <p className="text-neutral-600 dark:text-neutral-400">
+                        Satu kaos katun membutuhkan 2.700 liter air untuk diproduksi, setara dengan kebutuhan air minum 2,5 tahun.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-800">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-1">
+                        Emisi Karbon Masif
+                      </h3>
+                      <p className="text-neutral-600 dark:text-neutral-400">
+                        Industri fashion menyumbang 10% emisi karbon global, lebih besar dari penerbangan dan pelayaran internasional.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative">
+                  <div className="flex flex-wrap lg:flex-nowrap items-center gap-4 p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-800">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 rounded-full bg-orange-500/10 flex items-center justify-center">
+                        <svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-1">
+                        92 Juta Ton Limbah
+                      </h3>
+                      <p className="text-neutral-600 dark:text-neutral-400">
+                        Industri fashion menghasilkan 92 juta ton limbah tekstil setiap tahun, setara dengan satu truk sampah penuh setiap detik.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900 dark:text-white mb-6">
             Pusat Edukasi ThreadCycle

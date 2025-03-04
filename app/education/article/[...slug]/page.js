@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useParams } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,6 +10,20 @@ const DetailEdukasi = () => {
 	const { slug } = useParams();
 	const [article, setArticle] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
+	const articleRef = useRef(null);
+
+	// Scroll progress for tracing beam
+	const { scrollYProgress } = useScroll({
+		target: articleRef,
+		offset: ["start start", "end end"]
+	});
+
+	// Smooth spring animation for the beam
+	const scaleY = useSpring(scrollYProgress, {
+		stiffness: 100,
+		damping: 30,
+		restDelta: 0.001
+	});
 
 	const formatTitle = (slug) => {
 		return slug.toString()
@@ -87,7 +101,36 @@ const DetailEdukasi = () => {
 
 	return (
 		<div className="min-h-screen bg-white dark:bg-neutral-900 py-24">
-			<article className="max-w-3xl mx-auto px-4">
+			<article ref={articleRef} className="relative max-w-3xl mx-auto px-4">
+				{/* Tracing Beam */}
+				<div className="absolute left-[-50px] top-0 h-full">
+					<div className="sticky top-[100px] w-10 h-[80vh]">
+						<motion.div
+							className="h-full w-[2px] origin-top"
+							style={{
+								scaleY,
+								background: `linear-gradient(
+                  to bottom,
+                  transparent 0%,
+                  rgb(249 115 22) 10%,
+                  rgb(249 115 22) 90%,
+                  transparent 100%
+                )`
+							}}
+						/>
+
+						{/* Glowing Dot */}
+						<motion.div
+							className="absolute top-0 left-1/2 w-4 h-4 -translate-x-1/2 rounded-full bg-orange-500"
+							style={{
+								top: "calc(var(--scroll-progress, 0) * 100%)",
+								boxShadow: "0 0 20px 2px rgb(249 115 22)"
+							}}
+						/>
+					</div>
+				</div>
+
+				{/* Your existing content */}
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -135,6 +178,7 @@ const DetailEdukasi = () => {
 					</div>
 				</motion.div>
 
+				{/* Content sections with dots on timeline */}
 				<motion.div
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
@@ -144,19 +188,23 @@ const DetailEdukasi = () => {
 						switch (block.type) {
 							case "paragraph":
 								return (
-									<p key={index} className="text-neutral-700 dark:text-neutral-300 mb-6">
-										{block.content}
-									</p>
+									<div key={index} className="relative">
+										<p className="text-neutral-700 dark:text-neutral-300 mb-6">
+											{block.content}
+										</p>
+									</div>
 								);
 							case "subheading":
 								return (
-									<h2 key={index} className="text-2xl font-semibold text-neutral-900 dark:text-white mt-8 mb-4">
-										{block.content}
-									</h2>
+									<div key={index} className="relative">
+										<h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mt-8 mb-4">
+											{block.content}
+										</h2>
+									</div>
 								);
 							case "image":
 								return (
-									<figure key={index} className="my-8">
+									<figure key={index} className="relative my-8">
 										<div className="relative aspect-video rounded-xl overflow-hidden">
 											<Image
 												src={block.url}
@@ -176,6 +224,7 @@ const DetailEdukasi = () => {
 					})}
 				</motion.div>
 
+				{/* Related Articles section */}
 				<div className="mt-16 border-t border-neutral-200 dark:border-neutral-800 pt-8">
 					<h3 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-6">
 						Artikel Terkait

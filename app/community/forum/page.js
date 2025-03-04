@@ -26,7 +26,7 @@ const Forum = () => {
           content: "Bagikan tips dan trik merawat pakaian denim agar lebih tahan lama dan tetap stylish.",
           author: {
             name: "Muhammad Farhan",
-            avatar: "https://images.unsplash.com/photo-1560243563-062bfc001d68",
+            avatar: "/img/me.jpg",
             role: "Fashion Enthusiast"
           },
           replies: 24,
@@ -74,8 +74,8 @@ const Forum = () => {
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === filter.id
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+                  ? 'bg-orange-500 text-white'
+                  : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700'
                   }`}
               >
                 {filter.name}
@@ -94,10 +94,10 @@ const Forum = () => {
               key={topic.id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-orange-50 dark:bg-orange-900/20 p-6 rounded-xl border border-orange-200 dark:border-orange-800"
+              className="bg-orange-50 dark:bg-orange-900/20 p-4 sm:p-6 rounded-xl border border-orange-200 dark:border-orange-800"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 relative rounded-full overflow-hidden">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 relative rounded-full overflow-hidden flex-shrink-0">
                   <Image
                     src={topic.author.avatar}
                     alt={topic.author.name}
@@ -105,8 +105,8 @@ const Forum = () => {
                     className="object-cover"
                   />
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+                <div className="flex-1 w-full">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
                     <span className="px-2 py-1 bg-orange-200 dark:bg-orange-900/40 text-orange-600 text-xs rounded-full">
                       Pinned
                     </span>
@@ -125,16 +125,18 @@ const Forum = () => {
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
                     {topic.content}
                   </p>
-                  <div className="flex items-center gap-6 text-sm">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 text-sm">
                     <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400">
-                      <span>{topic.author.name}</span>
-                      <span>•</span>
-                      <span>{topic.author.role}</span>
+                      <span className="font-medium">{topic.author.name}</span>
+                      <span className="hidden sm:inline">•</span>
+                      <span className="text-xs sm:text-sm">{topic.author.role}</span>
                     </div>
-                    <div className="flex items-center gap-4 text-neutral-500 dark:text-neutral-400">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm">
                       <span>{topic.replies} balasan</span>
+                      <span className="hidden sm:inline">•</span>
                       <span>{topic.views} dilihat</span>
-                      <span>Aktivitas terakhir {topic.lastActivity}</span>
+                      <span className="hidden sm:inline">•</span>
+                      <span>{topic.lastActivity}</span>
                     </div>
                   </div>
                 </div>
@@ -147,10 +149,10 @@ const Forum = () => {
               key={topic.id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="bg-white dark:bg-neutral-800 p-6 rounded-xl border border-neutral-200 dark:border-neutral-700"
+              className="bg-white dark:bg-neutral-800 p-4 sm:p-6 rounded-xl border border-neutral-200 dark:border-neutral-700"
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 relative rounded-full overflow-hidden">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 relative rounded-full overflow-hidden flex-shrink-0">
                   <Image
                     src={topic.author.avatar}
                     alt={topic.author.name}
@@ -158,8 +160,8 @@ const Forum = () => {
                     className="object-cover"
                   />
                 </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-2">
+                <div className="flex-1 w-full">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
                     {topic.tags.map(tag => (
                       <span
                         key={tag}
@@ -175,16 +177,18 @@ const Forum = () => {
                   <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4">
                     {topic.content}
                   </p>
-                  <div className="flex items-center gap-6 text-sm">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-6 text-sm">
                     <div className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400">
-                      <span>{topic.author.name}</span>
-                      <span>•</span>
-                      <span>{topic.author.role}</span>
+                      <span className="font-medium">{topic.author.name}</span>
+                      <span className="hidden sm:inline">•</span>
+                      <span className="text-xs sm:text-sm">{topic.author.role}</span>
                     </div>
-                    <div className="flex items-center gap-4 text-neutral-500 dark:text-neutral-400">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-neutral-500 dark:text-neutral-400 text-xs sm:text-sm">
                       <span>{topic.replies} balasan</span>
+                      <span className="hidden sm:inline">•</span>
                       <span>{topic.views} dilihat</span>
-                      <span>Aktivitas terakhir {topic.lastActivity}</span>
+                      <span className="hidden sm:inline">•</span>
+                      <span>{topic.lastActivity}</span>
                     </div>
                   </div>
                 </div>

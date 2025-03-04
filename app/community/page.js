@@ -1,5 +1,6 @@
 "use client";
 
+import { CommunityMembers } from "@/components/ui/community-members";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -48,16 +49,62 @@ const Community = () => {
       lastActivity: "2 jam yang lalu",
       tags: ["tips", "perawatan"],
     },
+    {
+      id: 2,
+      title: "Review: Pengalaman Menukar Pakaian di ThreadCycle",
+      author: {
+        name: "Sarah Wilson",
+        avatar: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      },
+      replies: 18,
+      views: 203,
+      lastActivity: "5 jam yang lalu",
+      tags: ["review", "pengalaman"],
+    }
   ];
 
   const activeMembers = [
     {
       id: 1,
-      name: "Sarah Wilson",
-      avatar: "/img/avatars/sarah.jpg",
-      role: "Fashion Enthusiast",
-      contributions: 156,
-      joinDate: "Feb 2024",
+      name: "John Doe",
+      designation: "Software Engineer",
+      image:
+        "https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3387&q=80",
+    },
+    {
+      id: 2,
+      name: "Robert Johnson",
+      designation: "Product Manager",
+      image:
+        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXZhdGFyfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60",
+    },
+    {
+      id: 3,
+      name: "Muhammad Farhan",
+      designation: "Web Developer",
+      image:
+        "/img/me.jpg",
+    },
+    {
+      id: 4,
+      name: "Emily Davis",
+      designation: "UX Designer",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
+    },
+    {
+      id: 5,
+      name: "Tyler Durden",
+      designation: "Mobile Developer",
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80",
+    },
+    {
+      id: 6,
+      name: "Dora",
+      designation: "The Explorer",
+      image:
+        "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3534&q=80",
     },
   ];
 
@@ -181,6 +228,12 @@ const Community = () => {
               Lihat Semua
             </Link>
           </div>
+          <div className="text-center mb-8">
+            <div className="flex flex-row items-center justify-center w-full relative">
+              <CommunityMembers items={activeMembers} />
+            </div>
+            <span className="block mt-4 text-sm text-neutral-600 dark:text-neutral-400">Pengguna Aktif</span>
+          </div>
           <div className="space-y-4">
             {forumTopics.map((topic) => (
               <motion.div
@@ -189,7 +242,7 @@ const Community = () => {
                 animate={{ opacity: 1 }}
                 className="bg-white dark:bg-neutral-800 p-6 rounded-xl"
               >
-                <div className="flex items-start gap-4">
+                <div className="flex flex-wrap items-start gap-4">
                   <Image
                     src={topic.author.avatar}
                     alt={topic.author.name}
@@ -198,9 +251,10 @@ const Community = () => {
                     className="rounded-lg shrink-0"
                   />
                   <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2">
+                    <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-1">
                       {topic.title}
                     </h3>
+                    <span className="text-sm text-neutral-600 mb-2  block dark:text-neutral-400">Aktivitas terakhir {topic.lastActivity}</span>
                     <div className="flex flex-wrap gap-2 mb-3">
                       {topic.tags.map((tag) => (
                         <span
@@ -214,7 +268,6 @@ const Community = () => {
                     <div className="flex items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
                       <span>{topic.replies} balasan</span>
                       <span>{topic.views} dilihat</span>
-                      <span>Aktivitas terakhir {topic.lastActivity}</span>
                     </div>
                   </div>
                 </div>

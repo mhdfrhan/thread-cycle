@@ -13,31 +13,32 @@ import { UpcomingEvents } from "@/app/section/UpcomingEvents";
 import Image from "next/image";
 import About from "./section/About";
 import Link from "next/link";
+import { WorldMap } from '@/components/ui/WorldMap';
 
 const Home = () => {
   const steps = [
     {
       id: 1,
-      title: "Bagikan Lemari Pakaian Anda",
-      description: "Upload pakaian yang tidak lagi digunakan. Dapatkan poin berdasarkan kondisi dan merek.",
+      title: "Mulai Berbagi Cerita",
+      description: "Punya pakaian yang nganggur di lemari? Yuk, bagikan dengan kami! Makin bagus kondisinya, makin banyak poin yang kamu dapat. ✨",
       icon: "📸"
     },
     {
       id: 2,
-      title: "Hubungkan & Bertukar",
-      description: "Jelajahi koleksi, beli langsung atau tukar dengan poin dari pakaian yang Anda unggah.",
+      title: "Temukan & Tukarkan",
+      description: "Jelajahi koleksi keren dari member lain. Beli langsung atau tukar pakai poin dari pakaianmu. Gampang banget! 🛍️",
       icon: "🔄"
     },
     {
       id: 3,
-      title: "Kirim & Terima",
-      description: "Kirim dengan kemasan ramah lingkungan. Lacak pengiriman Anda secara real-time.",
+      title: "Pengiriman Super Cepat",
+      description: "Kami pastikan barang yang kamu beli sampai dengan aman dan cepat. Tidak perlu khawatir lagi! 🚚",
       icon: "📦"
     },
     {
       id: 4,
-      title: "Menciptakan Dampak",
-      description: "Pantau dampak lingkungan Anda dan dapatkan reward saat mencapai milestone.",
+      title: "Jadi Superhero Bumi",
+      description: "Lihat dampak positifmu untuk lingkungan dan dapatkan hadiah keren setiap mencapai milestone. Kamu memang hebat! 🌟",
       icon: "🌱"
     }
   ];
