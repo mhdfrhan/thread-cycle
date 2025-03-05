@@ -431,7 +431,7 @@ const Navbar = () => {
                       <p className="text-sm text-neutral-500 dark:text-neutral-400">Size: {item.size}</p>
                       <div className="flex items-center justify-between mt-2">
                         <p className="font-medium text-orange-500">
-                          Rp {item.price.toLocaleString('id-ID')}
+                          Rp. {item.price.toLocaleString('id-ID')}
                         </p>
                         <div className="flex items-center gap-2">
                           <button className="w-6 h-6 rounded-full bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center text-neutral-600 dark:text-neutral-400">-</button>
