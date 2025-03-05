@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 const ProductDetail = () => {
@@ -10,6 +10,8 @@ const ProductDetail = () => {
 	const [product, setProduct] = useState(null);
 	const [selectedImage, setSelectedImage] = useState(0);
 	const [isLoading, setIsLoading] = useState(true);
+	const [isAddingToCart, setIsAddingToCart] = useState(false);
+	const [showSuccess, setShowSuccess] = useState(false);
 
 	const formatProductName = (slug) => {
 		return slug.toString()
@@ -48,6 +50,17 @@ const ProductDetail = () => {
 		setIsLoading(false);
 	}, [slug]);
 
+	const handleAddToCart = () => {
+		setIsAddingToCart(true);
+		setTimeout(() => {
+			setShowSuccess(true);
+			setIsAddingToCart(false);
+			setTimeout(() => {
+				setShowSuccess(false);
+			}, 2000);
+		}, 1000);
+	};
+
 	if (isLoading || !product) {
 		return (
 			<div className="min-h-screen bg-white dark:bg-neutral-900 pt-24">
@@ -79,8 +92,8 @@ const ProductDetail = () => {
 									key={index}
 									onClick={() => setSelectedImage(index)}
 									className={`relative aspect-square rounded-lg overflow-hidden ${selectedImage === index
-											? "ring-2 ring-orange-500"
-											: "opacity-70 hover:opacity-100"
+										? "ring-2 ring-orange-500"
+										: "opacity-70 hover:opacity-100"
 										}`}
 								>
 									<Image
@@ -154,13 +167,102 @@ const ProductDetail = () => {
 									</div>
 								</div>
 
-								<div className="flex gap-4">
-									<button className="flex-1 bg-orange-500 text-white px-6 py-3 rounded-xl hover:bg-orange-600 transition-colors">
+								<div className="flex flex-wrap gap-4">
+									<button className="bg-orange-500 text-white py-2 px-5 md:px-6 md:py-3 rounded-xl hover:bg-orange-600 transition-colors w-full">
 										Beli Sekarang
 									</button>
-									<button className="flex-1 border border-orange-500 text-orange-500 px-6 py-3 rounded-xl hover:bg-orange-50 dark:hover:bg-neutral-800 transition-colors">
-										Tambah ke Keranjang
-									</button>
+									<div className="relative w-full">
+										<motion.button
+											onClick={handleAddToCart}
+											disabled={isAddingToCart}
+											className={`w-full border border-orange-500 text-orange-500 py-2 px-5 md:px-6 md:py-3 rounded-xl hover:bg-orange-50 dark:hover:bg-neutral-800 transition-colors ${isAddingToCart && "cursor-not-allowed opacity-50"
+												}`}
+										>
+											<div className="flex items-center justify-center gap-2">
+												<AnimatePresence mode="wait">
+													{isAddingToCart ? (
+														<motion.svg
+															key="loading"
+															className="w-5 h-5 animate-spin"
+															initial={{ opacity: 0, rotate: 0 }}
+															animate={{ opacity: 1, rotate: 360 }}
+															transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+															fill="none"
+															stroke="currentColor"
+															viewBox="0 0 24 24"
+														>
+															<path
+																strokeLinecap="round"
+																strokeLinejoin="round"
+																strokeWidth={2}
+																d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+															/>
+														</motion.svg>
+													) : (
+														<motion.svg
+															key="cart"
+															className="w-5 h-5"
+															initial={{ scale: 0.5, opacity: 0 }}
+															animate={{ scale: 1, opacity: 1 }}
+															exit={{ scale: 0.5, opacity: 0 }}
+															fill="none"
+															stroke="currentColor"
+															viewBox="0 0 24 24"
+														>
+															<path
+																strokeLinecap="round"
+																strokeLinejoin="round"
+																strokeWidth={2}
+																d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+															/>
+														</motion.svg>
+													)}
+												</AnimatePresence>
+												<span>Tambah ke Keranjang</span>
+											</div>
+										</motion.button>
+
+										<AnimatePresence>
+											{showSuccess && (
+												<motion.div
+													initial={{ opacity: 0, y: 10 }}
+													animate={{ opacity: 1, y: 0 }}
+													exit={{ opacity: 0, y: -10 }}
+													transition={{ duration: 0.2 }}
+													className="absolute top-full left-0 right-0 mt-2 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl"
+												>
+													<div className="flex items-center gap-2 text-green-600 dark:text-green-400">
+														<motion.div
+															initial={{ scale: 0 }}
+															animate={{ scale: 1 }}
+															transition={{
+																type: "spring",
+																stiffness: 300,
+																damping: 20
+															}}
+														>
+															<svg
+																className="w-5 h-5"
+																fill="none"
+																stroke="currentColor"
+																viewBox="0 0 24 24"
+															>
+																<path
+																	strokeLinecap="round"
+																	strokeLinejoin="round"
+																	strokeWidth={2}
+																	d="M5 13l4 4L19 7"
+																/>
+															</svg>
+														</motion.div>
+														<span className="text-sm font-medium">
+															Produk berhasil ditambahkan
+														</span>
+													</div>
+												</motion.div>
+											)}
+										</AnimatePresence>
+									</div>
 								</div>
 
 								<div className="space-y-4 border-t border-neutral-200 dark:border-neutral-800 pt-6">

@@ -13,7 +13,6 @@ import { UpcomingEvents } from "@/app/section/UpcomingEvents";
 import Image from "next/image";
 import About from "./section/About";
 import Link from "next/link";
-import { WorldMap } from '@/components/ui/WorldMap';
 
 const Home = () => {
   const steps = [
