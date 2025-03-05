@@ -24,6 +24,8 @@ const Navbar = () => {
   const notificationRef = useRef(null);
   const [notificationIconPos, setNotificationIconPos] = useState({ top: 0, right: 0 });
   const notificationButtonRef = useRef(null);
+  const [activeCategoryIndicator, setActiveCategoryIndicator] = useState({ left: 0, width: 0 });
+  const categoryMenuRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,6 +53,26 @@ const Navbar = () => {
     updateIndicator();
     window.addEventListener('resize', updateIndicator);
     return () => window.removeEventListener('resize', updateIndicator);
+  }, [pathname]);
+
+  useEffect(() => {
+    const updateCategoryIndicator = () => {
+      const activeCategory = categoryMenuRef.current?.querySelector(`[href="${pathname}"]`);
+      if (activeCategory) {
+        const menuLeft = categoryMenuRef.current.getBoundingClientRect().left;
+        const { left, width } = activeCategory.getBoundingClientRect();
+        setActiveCategoryIndicator({
+          left: left - menuLeft,
+          width: width,
+        });
+      } else {
+        setActiveCategoryIndicator({ left: 0, width: 0 });
+      }
+    };
+
+    updateCategoryIndicator();
+    window.addEventListener('resize', updateCategoryIndicator);
+    return () => window.removeEventListener('resize', updateCategoryIndicator);
   }, [pathname]);
 
   useEffect(() => {
@@ -294,7 +316,6 @@ const Navbar = () => {
                 </svg>
               </button>
 
-              {/* icon cart */}
               <button onClick={() => setIsCartOpen(true)} className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300 relative">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -373,7 +394,6 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* cart modal */}
       <AnimatePresence>
         {isCartOpen && (
           <>
@@ -443,7 +463,6 @@ const Navbar = () => {
         )}
       </AnimatePresence>
 
-      {/* Notification Modal */}
       <AnimatePresence>
         {isNotificationOpen && (
           <>
@@ -474,7 +493,7 @@ const Navbar = () => {
                 <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">Notifikasi</h2>
                 <button
                   className="text-sm text-orange-500 hover:text-orange-600"
-                  onClick={() => {/* Add mark all as read functionality */ }}
+                  onClick={() => {}}
                 >
                   Tandai Sudah Dibaca
                 </button>
@@ -532,19 +551,36 @@ const Navbar = () => {
         }`}>
         <div className="flex items-center justify-between max-w-7xl mx-auto px-4">
           <div className="hidden lg:flex justify-between w-full space-x-4">
-            {categories.map((category) => (
-              <Link
-                key={category.name}
-                href={category.href}
-                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 ${pathname === category.href
-                  ? 'bg-orange-500 text-white'
-                  : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800'
+            <div
+              ref={categoryMenuRef}
+              className="flex items-center space-x-2 bg-neutral-50/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 rounded-full py-1 px-2 relative"
+            >
+              <div
+                className={`absolute h-[calc(100%-8px)] transition-all duration-300 ease-out ${!categories.some(category => category.href === pathname) ? 'opacity-0' : 'opacity-100'
                   }`}
+                style={{
+                  left: `${activeCategoryIndicator.left}px`,
+                  width: `${activeCategoryIndicator.width}px`,
+                  top: '4px',
+                }}
               >
-                <span>{category.icon}</span>
-                <span>{category.name}</span>
-              </Link>
-            ))}
+                <div className="h-full w-full bg-orange-500 rounded-full" />
+              </div>
+
+              {categories.map((category) => (
+                <Link
+                  key={category.name}
+                  href={category.href}
+                  className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-300 flex items-center space-x-1 relative z-10 ${pathname === category.href
+                    ? 'text-white'
+                    : 'text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-200/70 dark:hover:bg-neutral-800/70'
+                    }`}
+                >
+                  <span>{category.icon}</span>
+                  <span>{category.name}</span>
+                </Link>
+              ))}
+            </div>
 
             <div className="hidden lg:flex flex-1 w-full max-w-xs ml-auto">
               <PlaceholdersAndVanishInput placeholders={placeholders} />
