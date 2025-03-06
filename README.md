@@ -65,7 +65,7 @@ npm run dev
 http://localhost:3000
 ```
 
-## Cara Menjalankan Proyek
+## Build untuk Production
 ```bash
 npm run build
 npm start
