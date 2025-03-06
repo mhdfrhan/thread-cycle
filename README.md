@@ -46,7 +46,7 @@ ThreadCycle hadir sebagai solusi untuk mengurangi limbah fashion melalui sistem 
 
 1. Clone repositori
 ```bash
-git clone https://github.com/username/thread-cycle.git
+git clone https://github.com/mhdfrhan/thread-cycle.git
 cd thread-cycle
 ```
 
