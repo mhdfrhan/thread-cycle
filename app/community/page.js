@@ -154,7 +154,7 @@ const Community = () => {
               Event Mendatang
             </h2>
             <Link
-              href="/community/events"
+              href="#"
               className="text-orange-500 hover:text-orange-600 transition-colors"
             >
               Lihat Semua
@@ -222,7 +222,7 @@ const Community = () => {
               Forum Diskusi
             </h2>
             <Link
-              href="/community/forum"
+              href="#"
               className="text-orange-500 hover:text-orange-600 transition-colors"
             >
               Lihat Semua
