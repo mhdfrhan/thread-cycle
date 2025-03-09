@@ -626,6 +626,7 @@ const Navbar = () => {
             <Link
               key={item.name}
               href={item.href}
+              onClick={() => setIsOpen(false)}
               className={`block px-3 py-2 text-base font-medium rounded-full transition-all duration-300 relative z-10 ${pathname === item.href
                 ? 'text-white'
                 : 'text-neutral-700 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800'
