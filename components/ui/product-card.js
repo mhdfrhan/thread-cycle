@@ -17,10 +17,10 @@ const ProductCard = ({ product }) => {
 				</div>
 			</div>
 			<div className="mt-2 text-center">
-				<Link href={`/product/${product.slug}`} className="font-semibold text-2xl hover:text-orange-500 transition-colors inline-block">
+				<Link href={`/product/${product.slug}`} className="font-semibold text-sm sm:text-2xl hover:text-orange-500 transition-colors inline-block">
 					<h3>{product.title}</h3>
 				</Link>
-				<p className="text-neutral-500 dark:text-neutral-300">{rupiah(product.price)}</p>
+				<p className="text-xs sm:text-base text-neutral-500 dark:text-neutral-300">{rupiah(product.price)}</p>
 			</div>
 		</div>
 	);
