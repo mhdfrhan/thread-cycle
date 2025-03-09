@@ -6,7 +6,7 @@ import { useOutsideClick } from "@/hooks/use-outside-click";
 
 export function UpcomingEvents() {
 	return (
-		<div className="py-16 bg-neutral-100 dark:bg-neutral-950">
+		<div className="py-16 bg-neutral-50 dark:bg-neutral-950">
 			<div className="max-w-7xl mx-auto px-4">
 				<div className="mb-8 text-center">
 					<h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-800 dark:text-white mb-4 flex justify-center items-center text-center">
@@ -153,21 +153,23 @@ function ExpandableCardDemo() {
 						layoutId={`card-${card.title}-${id}`}
 						key={card.title}
 						onClick={() => setActive(card)}
-						className="group bg-white dark:bg-neutral-800 rounded-xl overflow-hidden shadow-sm hover:shadow-md cursor-pointer"
+						className="group bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-md cursor-pointer transition-shadow"
 					>
-						<motion.div layoutId={`image-${card.title}-${id}`} className="relative h-48">
-							<Image
-								width={400}
-								height={300}
-								src={card.src}
-								alt={card.title}
-								className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform"
-							/>
+						<motion.div layoutId={`image-${card.title}-${id}`} className="relative">
+							<div className="overflow-hidden h-48">
+								<Image
+									width={400}
+									height={300}
+									src={card.src}
+									alt={card.title}
+									className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform"
+								/>
+							</div>
 						</motion.div>
-						<div className="p-4">
+						<div className="p-6">
 							<motion.h3
 								layoutId={`title-${card.title}-${id}`}
-								className="font-semibold text-neutral-900 dark:text-white mb-2"
+								className="font-medium capitalize text-lg text-neutral-900 dark:text-white mb-1"
 							>
 								{card.title}
 							</motion.h3>

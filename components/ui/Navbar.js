@@ -239,7 +239,7 @@ const Navbar = () => {
 
             <div
               ref={menuRef}
-              className="hidden lg:flex items-center space-x-1 border border-neutral-200 dark:border-neutral-800 rounded-full py-1 px-2 bg-neutral-50/80 dark:bg-neutral-900/80 relative"
+              className="hidden lg:flex items-center space-x-1 border border-neutral-200 dark:border-neutral-800 rounded-full py-1 px-2 relative"
             >
               <div
                 className={`absolute h-[calc(100%-8px)] transition-all duration-300 ease-out ${!menuItems.some(item => item.href === pathname) ? 'opacity-0' : 'opacity-100'}`}
@@ -453,6 +453,7 @@ const Navbar = () => {
                 </div>
                 <Link
                   href="/checkout"
+                  onClick={() => setIsCartOpen(false)}
                   className="block w-full py-3 px-4 bg-orange-500 hover:bg-orange-600 text-white text-center font-medium rounded-full transition-colors"
                 >
                   Checkout
@@ -553,7 +554,7 @@ const Navbar = () => {
           <div className="hidden lg:flex justify-between w-full space-x-4">
             <div
               ref={categoryMenuRef}
-              className="flex items-center space-x-2 bg-neutral-50/80 dark:bg-neutral-900/80 border border-neutral-200 dark:border-neutral-800 rounded-full py-1 px-2 relative"
+              className="flex items-center space-x-2 border border-neutral-200 dark:border-neutral-800 rounded-full py-1 px-2 relative"
             >
               <div
                 className={`absolute h-[calc(100%-8px)] transition-all duration-300 ease-out ${!categories.some(category => category.href === pathname) ? 'opacity-0' : 'opacity-100'

@@ -10,9 +10,9 @@ const Footer = () => {
       title: "ThreadCycle",
       links: [
         { name: "Tentang Kami", href: "/about" },
-        { name: "Karir", href: "/careers" },
+        { name: "Karir", href: "#" },
         { name: "Edukasi", href: "/education" },
-        { name: "Partner", href: "/partners" },
+        { name: "Partner", href: "#" },
       ],
     },
     {
@@ -20,16 +20,16 @@ const Footer = () => {
       links: [
         { name: "Marketplace", href: "/marketplace" },
         { name: "Tukar Pakaian", href: "/exchange" },
-        { name: "Pickup Service", href: "/pickup" },
-        { name: "Drop Point", href: "/droppoint" },
+        { name: "Pickup Service", href: "#" },
+        { name: "Drop Point", href: "#" },
       ],
     },
     {
       title: "Bantuan",
       links: [
-        { name: "FAQ", href: "/faq" },
-        { name: "Kebijakan Privasi", href: "/privacy" },
-        { name: "Syarat & Ketentuan", href: "/terms" },
+        { name: "FAQ", href: "#" },
+        { name: "Kebijakan Privasi", href: "#" },
+        { name: "Syarat & Ketentuan", href: "#" },
         { name: "Hubungi Kami", href: "/contact" },
       ],
     },

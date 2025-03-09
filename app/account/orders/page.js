@@ -61,7 +61,6 @@ const OrdersPage = () => {
           </p>
         </div>
 
-        {/* Tabs */}
         <div className="flex gap-4 border-b border-neutral-200 dark:border-neutral-700 mb-8">
           <button
             onClick={() => setActiveTab("active")}
@@ -97,7 +96,6 @@ const OrdersPage = () => {
           </button>
         </div>
 
-        {/* Orders List */}
         <div className="space-y-6">
           {orders[activeTab].map((order) => (
             <motion.div
@@ -106,7 +104,6 @@ const OrdersPage = () => {
               animate={{ opacity: 1, y: 0 }}
               className="bg-white dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 overflow-hidden"
             >
-              {/* Order Header */}
               <div className="p-6 border-b border-neutral-200 dark:border-neutral-700">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div>
@@ -139,7 +136,6 @@ const OrdersPage = () => {
                 </div>
               </div>
 
-              {/* Order Items */}
               <div className="p-6">
                 <div className="space-y-4">
                   {order.items.map((item, index) => (
@@ -172,12 +168,11 @@ const OrdersPage = () => {
 
                 {order.status === "Menunggu Pembayaran" && (
                   <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                    <Link
-                      href={`/checkout/confirmation?order=${order.id}`}
+                    <button
                       className="flex-1 px-6 py-3 bg-orange-500 text-white text-sm font-medium rounded-lg hover:bg-orange-600 transition-colors text-center"
                     >
                       Lanjutkan Pembayaran
-                    </Link>
+                    </button>
                     <button className="flex-1 px-6 py-3 border border-neutral-200 dark:border-neutral-700 text-neutral-700 dark:text-neutral-300 text-sm font-medium rounded-lg hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors">
                       Batalkan Pesanan
                     </button>

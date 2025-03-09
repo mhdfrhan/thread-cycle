@@ -12,7 +12,6 @@ ThreadCycle hadir sebagai solusi untuk mengurangi limbah fashion melalui sistem 
 - 🔄 **Sistem Tukar Pakaian** - Tukar pakaian dengan sistem poin
 - 📚 **Platform Edukasi** - Artikel dan kursus tentang fashion berkelanjutan
 - 👥 **Komunitas** - Forum diskusi dan berbagi pengalaman
-- 🌟 **Sistem Rating & Review** - Penilaian untuk setiap transaksi
 - 🎯 **Filter & Pencarian** - Kemudahan menemukan pakaian yang diinginkan
 - 🌙 **Mode Gelap/Terang** - Tampilan yang nyaman untuk mata
 
@@ -39,8 +38,10 @@ ThreadCycle hadir sebagai solusi untuk mengurangi limbah fashion melalui sistem 
 12. **Pesanan** (`/account/orders`) - Riwayat pesanan
 13. **Masuk** (`/auth/login`) - Halaman login
 14. **Daftar** (`/auth/register`) - Halaman registrasi
-15. **Koleksi Produk** (`/collections/[slug]`) - Informasi detail koleksi baju
-16. **Kontak** (`/contact`) - Halaman Kontak
+15. **Kontak** (`/contact`) - Halaman Kontak
+16. **Detail Artikel** (`/article/[slug]`) - Halaman Detail Artikel
+
+<!-- Total 15 halaman (tidak termasuk homepage) -->
 
 ## Cara Menjalankan Proyek
 

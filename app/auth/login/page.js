@@ -101,7 +101,7 @@ const Login = () => {
 								<input type="checkbox" className="form-checkbox h-4 w-4 text-orange-500 focus:ring-orange-500 border-neutral-300 rounded duration-150" />
 								<span className="ml-2 text-sm text-neutral-600 dark:text-neutral-400 select-none">Ingat saya</span>
 							</label>
-							<Link href="/auth/forgot-password"
+							<Link href="#"
 								className="text-sm text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300">
 								Lupa password?
 							</Link>

@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
 		<div>
 			<div className="relative">
 				<Image width={200} height={200} className="w-full h-full rounded-lg" src={product.image} alt={product.title} />
-				<div className="absolute top-2 right-2 font-medium bg-neutral-300/70 dark:bg-black/70 py-1.5 px-3 text-xs uppercase rounded-full">
+				<div className="absolute top-2 right-2 font-medium bg-neutral-300/70 dark:bg-black/70 py-0.5 px-2 sm:py-1.5 sm:px-3 text-[10px] sm:text-xs uppercase rounded-full">
 					{product.category}
 				</div>
 			</div>
