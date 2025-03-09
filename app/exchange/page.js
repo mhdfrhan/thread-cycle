@@ -462,7 +462,7 @@ const Exchange = () => {
                 <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-6">
                   Pakaian Saya
                 </h2>
-                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 md:gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4">
                   {myClothes.map((item) => (
                     <ExchangeCard key={item.id} item={item} type="my" />
                   ))}
@@ -473,7 +473,7 @@ const Exchange = () => {
                 <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-6">
                   Pakaian Tersedia
                 </h2>
-                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4 md:gap-6">
+                <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-4">
                   {availableClothes.map((item) => (
                     <ExchangeCard key={item.id} item={item} type="available" />
                   ))}

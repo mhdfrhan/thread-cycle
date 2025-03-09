@@ -324,9 +324,9 @@ const Education = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-neutral-900 py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4">
         <section className="overflow-hidden bg-white dark:bg-neutral-900 pb-16">
-          <div className="max-w-7xl mx-auto px-4">
+          <div className="relative">
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-neutral-900 dark:text-white mb-4">
                 Dampak Fashion terhadap Bumi Kita

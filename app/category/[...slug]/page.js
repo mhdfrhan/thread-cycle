@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const Category = () => {
 	const { slug } = useParams();
@@ -54,6 +55,7 @@ const Category = () => {
 			return Array.from({ length: 12 }, (_, i) => ({
 				id: i + 1,
 				name: `${categoryNames[slug] || "Produk"} ${i + 1}`,
+				slug: `product-${i + 1}`,
 				price: Math.floor(Math.random() * 300000) + 50000,
 				condition: conditions[Math.floor(Math.random() * conditions.length)].id,
 				size: sizes[Math.floor(Math.random() * sizes.length)].id,
@@ -238,7 +240,7 @@ const Category = () => {
 						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
-							className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+							className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
 						>
 							{products.map((product) => (
 								<motion.div
@@ -263,9 +265,11 @@ const Category = () => {
 										</div>
 									</div>
 									<div className="p-4">
-										<h3 className="font-semibold text-neutral-900 dark:text-white mb-1">
-											{product.name}
-										</h3>
+										<Link href={`/product/${product.slug}`}>
+											<h3 className="font-semibold text-neutral-900 dark:text-white mb-1 hover:text-orange-500 transition-colors">
+												{product.name}
+											</h3>
+										</Link>
 										<p className="text-orange-500 font-medium mb-2">
 											Rp {product.price.toLocaleString('id-ID')}
 										</p>
