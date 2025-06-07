@@ -21,6 +21,7 @@ const ContactPage = () => {
       setFormData({ name: "", email: "", subject: "", message: "" });
     }, 2000);
   };
+  
 
   const contactInfo = [
     {

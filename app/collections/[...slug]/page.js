@@ -28,6 +28,7 @@ const Koleksi = () => {
         category: "Limited Edition",
       };
     };
+    
 
     const generateProducts = () => {
       return Array.from({ length: 12 }, (_, i) => ({

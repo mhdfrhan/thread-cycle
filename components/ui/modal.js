@@ -39,8 +39,7 @@ const Modal = ({ isOpen, onClose, onConfirm, title, children, type = "info" }) =
 						initial={{ opacity: 0, scale: 0.95 }}
 						animate={{ opacity: 1, scale: 1 }}
 						exit={{ opacity: 0, scale: 0.95 }}
-						className="fixed px-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-50"
-					>
+						className="fixed px-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-50">
 						<div className="bg-white dark:bg-neutral-800 rounded-xl shadow-xl overflow-hidden">
 							<div className="p-6">
 								<div className="flex items-center gap-3 mb-4">

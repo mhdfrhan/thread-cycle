@@ -269,8 +269,7 @@ const Navbar = () => {
               <button
                 onClick={toggleTheme}
                 className="p-2 rounded-full text-neutral-700 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-all duration-300"
-                aria-label="Toggle Theme"
-              >
+                aria-label="Toggle Theme">
                 {theme === 'dark' ? (
                   <svg
                     className="w-5 h-5"

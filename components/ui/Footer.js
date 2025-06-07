@@ -117,6 +117,7 @@ const Footer = () => {
             </div>
           </motion.div>
 
+
           {footerSections.map((section, index) => (
             <motion.div
               key={section.title}

@@ -2,7 +2,7 @@
 
 ThreadCycle adalah platform fashion berkelanjutan yang menghubungkan para pecinta fashion untuk membeli, menjual, dan menukar pakaian bekas berkualitas.
 
-## Deskripsi
+## Deskripsi 
 
 ThreadCycle hadir sebagai solusi untuk mengurangi limbah fashion melalui sistem tukar-menukar pakaian yang inovatif. Platform ini memungkinkan pengguna untuk memberikan kehidupan baru pada pakaian yang tidak lagi mereka gunakan, sekaligus mendapatkan poin yang bisa ditukarkan dengan pakaian lain.
 
@@ -41,7 +41,6 @@ ThreadCycle hadir sebagai solusi untuk mengurangi limbah fashion melalui sistem 
 15. **Kontak** (`/contact`) - Halaman Kontak
 16. **Detail Artikel** (`/article/[slug]`) - Halaman Detail Artikel
 
-<!-- Total 15 halaman (tidak termasuk homepage) -->
 
 ## Cara Menjalankan Proyek
 

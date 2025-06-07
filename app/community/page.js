@@ -176,6 +176,7 @@ const Community = () => {
                     className="object-cover"
                   />
                 </div>
+                
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-2">
                     {event.title}

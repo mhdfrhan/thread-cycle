@@ -25,6 +25,7 @@ export default function RootLayout({ children }) {
         <meta name="description" content="ThreadCycle adalah platform untuk membeli dan menjual pakaian bekas dengan harga yang terjangkau." />
         <link rel="icon" href="/img/logo.svg" />
       </head>
+
       <body className={`${inter.variable} antialiased bg-black`}>
         <ThemeProvider>
           {!hideNavbarFooter && <Navbar />}
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
           {!hideNavbarFooter && <Footer />}
         </ThemeProvider>
       </body>
+      
     </html>
   );
 }

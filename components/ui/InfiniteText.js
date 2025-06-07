@@ -24,6 +24,7 @@ const InfiniteText = () => {
         }}
         className="whitespace-nowrap"
       >
+        
         <span className="mx-4 text-white">
           {items.map((item, i) => (
             <span key={i} className="mx-8 text-sm font-medium">

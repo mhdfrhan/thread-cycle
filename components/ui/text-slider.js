@@ -84,6 +84,7 @@ export const TextSlider = ({
       if (copyWidth === 0) return "0px";
       return `${wrap(-copyWidth, 0, v)}px`;
     });
+    
 
     const directionFactor = useRef(1);
     useAnimationFrame((t, delta) => {

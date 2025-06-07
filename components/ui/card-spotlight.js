@@ -12,6 +12,7 @@ export const CardSpotlight = ({
   className,
   ...props
 }) => {
+  
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   function handleMouseMove({

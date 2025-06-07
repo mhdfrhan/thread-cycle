@@ -12,13 +12,11 @@ const DetailEdukasi = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const articleRef = useRef(null);
 
-	// Scroll progress for tracing beam
 	const { scrollYProgress } = useScroll({
 		target: articleRef,
 		offset: ["start start", "end end"]
 	});
 
-	// Smooth spring animation for the beam
 	const scaleY = useSpring(scrollYProgress, {
 		stiffness: 100,
 		damping: 30,

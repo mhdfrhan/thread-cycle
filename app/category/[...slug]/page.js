@@ -73,6 +73,7 @@ const Category = () => {
 			onClick={() => setIsFilterOpen(true)}
 			className="lg:hidden fixed left-4 bottom-4 z-50 bg-orange-500 text-white p-4 rounded-full shadow-lg hover:bg-orange-600 transition-colors duration-300"
 		>
+			
 			<svg
 				className="w-6 h-6"
 				fill="none"

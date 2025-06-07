@@ -31,6 +31,7 @@ const Checkout = () => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   };
 
+  
   const shippingCost = 20000;
   const subtotal = calculateSubtotal();
   const total = subtotal + shippingCost;

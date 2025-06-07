@@ -20,6 +20,7 @@ export const WelcomeModal = () => {
     setIsOpen(false);
   };
 
+  
   return (
     <AnimatePresence>
       {isOpen && (

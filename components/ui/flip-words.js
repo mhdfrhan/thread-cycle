@@ -24,6 +24,7 @@ export const FlipWords = ({
       }, duration);
   }, [isAnimating, duration, startAnimation]);
 
+  
   return (
     (<AnimatePresence
       onExitComplete={() => {

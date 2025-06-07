@@ -18,6 +18,7 @@ export function PlaceholdersAndVanishInput({
     }, 3000);
   }, [placeholders.length]);
 
+  
   const handleVisibilityChange = useCallback(() => {
     if (document.visibilityState !== "visible" && intervalRef.current) {
       clearInterval(intervalRef.current);

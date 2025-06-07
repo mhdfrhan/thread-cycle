@@ -21,6 +21,7 @@ export const CommunityMembers = ({
     const halfWidth = event.target.offsetWidth / 2;
     x.set(event.nativeEvent.offsetX - halfWidth);
   };
+  
 
   return (<>
     {items.map((item, idx) => (

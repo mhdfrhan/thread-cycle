@@ -5,10 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState, useCallback } from "react";
 
+
 export const AnimatedTestimonials = ({
 	testimonials,
 	autoplay = false
-}) => {
+}) => { 
 	const [isClient, setIsClient] = useState(false);
 	const [active, setActive] = useState(0);
 

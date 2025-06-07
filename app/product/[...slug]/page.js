@@ -20,6 +20,7 @@ const ProductDetail = () => {
 			.join(' ');
 	};
 
+	
 	useEffect(() => {
 		const generateProduct = () => {
 			return {

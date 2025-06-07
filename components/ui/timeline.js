@@ -28,6 +28,7 @@ export const Timeline = ({
     (<div
       className="w-full font-sans md:px-10"
       ref={containerRef}>
+        
       <div className="max-w-7xl mx-auto ">
         <h2 className="text-3xl font-bold text-neutral-900 dark:text-white text-center mb-4">
           Perjalanan Kami

@@ -312,6 +312,7 @@ const Marketplace = () => {
                   exit={{ opacity: 0 }}
                   className="bg-white dark:bg-neutral-900 rounded-xl overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:shadow-lg transition-shadow duration-300"
                 >
+                  
                   <div className="relative aspect-square">
                     <Image
                       src={product.image}

@@ -350,6 +350,7 @@ const Education = () => {
                   alt="Dampak Fashion"
                 />
               </div>
+              
 
               <div className="order-1 lg:order-2 mt-10" data-aos="fade-left">
                 <div className="grid sm:grid-cols-2 gap-6">

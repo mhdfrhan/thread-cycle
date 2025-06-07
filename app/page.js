@@ -455,6 +455,7 @@ const Home = () => {
               </span>
             </h1>
           </div>
+          
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-y-8">
             {popularProducts.map((product, index) => (
               <div

@@ -24,6 +24,7 @@ const OrderConfirmation = () => {
 			bankName: "BCA",
 		}
 	};
+	
 
 	return (
 		<div className="min-h-screen bg-white dark:bg-neutral-900 py-24">

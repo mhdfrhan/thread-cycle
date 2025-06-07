@@ -179,6 +179,7 @@ function ExpandableCardDemo() {
 							>
 								{card.description}
 							</motion.p>
+							
 						</div>
 					</motion.li>
 				))}

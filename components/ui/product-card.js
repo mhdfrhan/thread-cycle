@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
 					{product.category}
 				</div>
 			</div>
-			<div className="mt-2 text-center">
+			<div className="mt-2  text-center">
 				<Link href={`/product/${product.slug}`} className="font-semibold text-sm sm:text-2xl hover:text-orange-500 transition-colors inline-block">
 					<h3>{product.title}</h3>
 				</Link>

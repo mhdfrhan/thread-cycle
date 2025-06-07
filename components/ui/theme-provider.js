@@ -19,6 +19,7 @@ export function ThemeProvider({ children }) {
     localStorage.setItem("theme", newTheme);
     document.documentElement.className = newTheme;
   };
+  
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
