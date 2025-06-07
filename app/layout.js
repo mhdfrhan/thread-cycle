@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
   const hideNavbarFooter = pathname === "/auth/login" || pathname === "/auth/register";
 
   return (
-    <html lang="id">
+    <html lang="id" className="light">
       <head>
         <title>ThreadCycle | Platform Beli dan Jual Pakaian Bekas</title>
         <meta name="description" content="ThreadCycle adalah platform untuk membeli dan menjual pakaian bekas dengan harga yang terjangkau." />

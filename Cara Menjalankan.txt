@@ -1,0 +1,24 @@
+Cara Menjalankan Proyek
+
+1. Clone repositori
+git clone https://github.com/mhdfrhan/thread-cycle.git atau download dan extract folder project nya
+
+jika didownload, setelah extract, keluarkan folder thread-cycle dari folder utama "IFest#13_WDC_FrontPage UMRI_Universitas Muhammadiyah Riau" agar tidak error
+
+cd thread-cycle
+
+2. Install dependensi
+npm install
+
+3. Jalankan server development
+npm run dev
+
+4. Buka browser dan akses
+http://localhost:3000
+
+Build untuk Production
+npm run build
+npm start
+
+
+note: setelah dilakukan pengecekan secara detail, website ini tidak ada error sama sekali pada saat proses development dan production
